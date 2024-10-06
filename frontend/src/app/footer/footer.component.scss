@@ -1,0 +1,63 @@
+* {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Footer General Styles */
+footer {
+  background-color: var(--secondary-bg); /* Dark Grey Background */
+  color: white; /* White text for footer */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-info h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.contact-info a {
+  color: var(--secondary-cl); /* Soft Blue for Email and Phone links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--tertiary-cl); /* Muted Orange on Hover */
+}
+
+/* Social Media Links */
+.social-media {
+  display: flex;            /* Make the icons align in a row */
+  justify-content: center;   /* Center the icons horizontally */
+  margin: 20px 0;
+}
+
+.social-media a {
+  width: 30px; /* Icon size */
+  height: 30px;
+  margin: 0 10px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-media a img {
+  filter: brightness(0) invert(1); /* Makes the icons white */
+}
+
+.social-media a:hover {
+  transform: scale(1.1); /* Slight grow effect on hover */
+}

@@ -1,1 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-bg: #f5f5f5;
+  --secondary-bg: #333333;
+  --primary-cl: #333333;
+  --secondary-cl: #4a90e2;
+  --tertiary-cl: #f5a623;
+
+  --timeline-box-bg: white;
+}
+
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--primary-bg); /* Light Grey Background */
+  color: var(--main-cl); /* Dark Grey Text */
+  line-height: 1.6;
+}
+
+/* Section */
+section {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+/* Links */
+a {
+  color: var(--secondary-cl); /* Soft Blue for Links */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--tertiary-cl); /* Muted Orange on Hover */
+}
+
+/* Navigation */
+nav ul {
+  list-style-type: none;
+  background-color: var(--secondary-bg); /* Dark Grey Background for Nav */
+  text-align: center;
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  // background-color: var(--secondary-cl); /* Soft Blue Hover Effect */
+}
+
+/* Hero Section */
+.hero {
+  background-color: #e8e8e8; /* Slightly Darker Grey for Hero */
+  padding: 80px 0;
+  text-align: center;
+  color: #333333;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.5em;
+  color: #666666; /* Lighter Grey for Subtitle */
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--secondary-cl); /* Soft Blue */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--tertiary-cl); /* Muted Orange Hover Effect */
+}
+
+/* Section Headings */
+/***
+section h2 {
+  color: #333333;
+  border-bottom: 2px solid #dcdcdc;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+*/
+
+/* Subtle Dividers */
+/*
+hr {
+  border: none;
+  border-top: 1px solid #dcdcdc;
+  margin: 40px 0;
+}
+*/
