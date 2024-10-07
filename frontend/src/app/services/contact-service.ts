@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class ContactService {
 
-  private contactBaseUri: string = this.globals.backendUri + '/contact'
+  private contactBaseUri: string = this.globals.apiUri + '/contact'
 
   constructor(private httpClient: HttpClient, private globals: Globals) {
   }

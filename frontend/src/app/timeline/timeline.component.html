@@ -1,38 +1,14 @@
 <div class="timeline">
-  <div class="container left">
+  <div *ngFor="let educationItem of educationItems; let i = index" [ngClass]="i % 2 === 0 ? 'container left' : 'container right'">
     <div class="content">
       <div class="container-header">
-        <img src="assets/meduniwien-logo.png" alt="Logo">
+        <img src="{{educationItem.logoUrl}}" alt="Logo">
         <div class="container-text">
-          <h2>Medizinische Universität Wien</h2>
-          <p class="time-range">2024-NOW</p>
+          <h2>{{educationItem.schoolName}}</h2>
+          <p class="time-range">{{ educationItem.startingYear }}-{{ educationItem.endingYear ? educationItem.endingYear : 'NOW' }}</p>
         </div>
       </div>
-      <p>Lorem ipsum..</p>
-    </div>
-  </div>
-  <div class="container right">
-    <div class="content">
-      <div class="container-header">
-        <img src="assets/TU_Signet_transparent_300dpi_RGB.png" alt="Logo">
-        <div class="container-text">
-          <h2>Technische Universität Wien</h2>
-          <p class="time-range">2020-NOW</p>
-        </div>
-      </div>
-      <p>Lorem ipsum..</p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-      <div class="container-header">
-        <img src="assets/logo.svg" alt="Logo">
-        <div class="container-text">
-          <h2>Ballsportgymnasium Wien</h2>
-          <p class="time-range">2016-2020</p>
-        </div>
-      </div>
-      <p>Lorem ipsum..</p>
+      <p>{{educationItem.description}}</p>
     </div>
   </div>
 </div>

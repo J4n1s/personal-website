@@ -25,19 +25,19 @@ public class EducationItemDataGenerator {
     private void generateData() {
         if (educationItemRepository.findAll().isEmpty()) {
             // Med Uni Vienna
-            EducationItem medUni = new EducationItem(2024, null, "path/to/url");
+            EducationItem medUni = new EducationItem(2024, null, "assets/logo-muw.png");
             List<EducationItemTranslation> medTranslations = getMedUniTranslations(medUni);
             medUni.setTranslations(medTranslations);
             educationItemRepository.save(medUni);
             
             // TU Vienna
-            EducationItem tu = new EducationItem(2020, null, "path/to/url");
+            EducationItem tu = new EducationItem(2020, null, "assets/logo-tu.png");
             List<EducationItemTranslation> tuTranslations = getTuTranslations(tu);
             tu.setTranslations(tuTranslations);
             educationItemRepository.save(tu);
 
             // BSG Vienna
-            EducationItem bsg = new EducationItem(2017, 2020, "path/to/url");
+            EducationItem bsg = new EducationItem(2017, 2020, "assets/logo-bsg.svg");
             List<EducationItemTranslation> bsgTranslations = getBSGTranslations(bsg);
             bsg.setTranslations(bsgTranslations);
             educationItemRepository.save(bsg);
