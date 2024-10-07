@@ -1,5 +1,6 @@
 package janis.website.backend.unit.repository;
 
+import janis.website.backend.controller.mapper.EducationItemMapper;
 import janis.website.backend.entity.ContactInformation;
 import janis.website.backend.repository.ContactInformationRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +30,7 @@ public class ContactInformationRepositoryTest {
     }
 
     @Test
-    void save_singleEntity() {
+    void testSave_singleEntity() {
         repository.save(contact);
         List<ContactInformation> contactInformationList = repository.findAll();
 
@@ -44,7 +45,7 @@ public class ContactInformationRepositoryTest {
     }
 
     @Test
-    void delete_singleEntity() {
+    void testDelete_singleEntity() {
         repository.save(contact);
         assertEquals(1, repository.findAll().size());
 
