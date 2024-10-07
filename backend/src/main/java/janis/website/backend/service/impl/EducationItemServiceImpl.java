@@ -23,9 +23,9 @@ public class EducationItemServiceImpl implements EducationItemService {
     public List<EducationItem> getAllByLanguage(String language) {
         LOGGER.info("Getting all education items for {}", language);
 
-        List<EducationItem> educationItems = educationItemRepository.findAllByLanguage(language);
+        List<EducationItem> educationItems = educationItemRepository.findAllByLanguageOrderByStartingYear(language);
         if (educationItems == null || educationItems.isEmpty()) {
-            educationItems = educationItemRepository.findAllByLanguage("de");
+            educationItems = educationItemRepository.findAllByLanguageOrderByStartingYear("de");
         }
         return educationItems;
     }

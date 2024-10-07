@@ -69,4 +69,44 @@ public class EducationItemRepositoryTest {
                 () -> assertEquals(educationItemTranslation, foundEducationItem.getTranslations().get(0))
         );
     }
+
+    @Test
+    void testFindOrderedByLanguage() {
+        String language = "de";
+        EducationItem educationItem1 = new EducationItem(1980, 1985, "1");
+        EducationItem educationItem2 = new EducationItem(1987, null, "3");
+        EducationItem educationItem3 = new EducationItem(1982, 1984, "2");
+        EducationItem educationItem4 = new EducationItem(1985, 1986, "4");
+
+        EducationItemTranslation educationItemTranslation1 = new EducationItemTranslation(language, "a", "b", "c", "d");
+        EducationItemTranslation educationItemTranslation2 = new EducationItemTranslation(language, "e", "f", "g", "h");
+        EducationItemTranslation educationItemTranslation3 = new EducationItemTranslation(language, "i", "j", "k", "l");
+        EducationItemTranslation educationItemTranslation4 = new EducationItemTranslation("other language", "m", "n", "o", "p");
+
+        educationItemTranslation1.setEducationItem(educationItem1);
+        educationItemTranslation2.setEducationItem(educationItem2);
+        educationItemTranslation3.setEducationItem(educationItem3);
+        educationItemTranslation4.setEducationItem(educationItem4);
+        educationItem1.setTranslations(List.of(educationItemTranslation1));
+        educationItem2.setTranslations(List.of(educationItemTranslation2));
+        educationItem3.setTranslations(List.of(educationItemTranslation3));
+        educationItem4.setTranslations(List.of(educationItemTranslation4));
+
+        educationItemRepository.save(educationItem1);
+        educationItemRepository.save(educationItem2);
+        educationItemRepository.save(educationItem3);
+        educationItemRepository.save(educationItem4);
+
+        List<EducationItem> educationItems = educationItemRepository.findAllByLanguageOrderByStartingYear(language);
+        assertEquals(3, educationItems.size());
+        EducationItem foundEducationItem1 = educationItems.get(0);
+        EducationItem foundEducationItem2 = educationItems.get(1);
+        EducationItem foundEducationItem3 = educationItems.get(2);
+
+        assertAll(
+                () -> assertEquals(educationItem1, foundEducationItem3),
+                () -> assertEquals(educationItem2, foundEducationItem1),
+                () -> assertEquals(educationItem3, foundEducationItem2)
+        );
+    }
 }
