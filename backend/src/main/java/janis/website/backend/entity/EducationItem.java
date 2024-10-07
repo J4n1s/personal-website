@@ -1,12 +1,15 @@
 package janis.website.backend.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
 
 
-@ToString
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "education_item")
 public class EducationItem {
@@ -32,48 +35,5 @@ public class EducationItem {
         this.startingYear = startingYear;
         this.endingYear = endingYear;
         this.logoUrl = logoUrl;
-    }
-
-    public EducationItem() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Integer getStartingYear() {
-        return startingYear;
-    }
-
-    public void setStartingYear(Integer startingYear) {
-        this.startingYear = startingYear;
-    }
-
-    public Integer getEndingYear() {
-        return endingYear;
-    }
-
-    public void setEndingYear(Integer endingYear) {
-        this.endingYear = endingYear;
-    }
-
-    public String getLogoUrl() {
-        return logoUrl;
-    }
-
-    public void setLogoUrl(String url) {
-        this.logoUrl = url;
-    }
-
-    public List<EducationItemTranslation> getTranslations() {
-        return translations;
-    }
-
-    public void setTranslations(List<EducationItemTranslation> translations) {
-        this.translations = translations;
     }
 }
