@@ -27,7 +27,9 @@ public class EducationItemDataGenerator {
 
     @PostConstruct
     private void generateData() {
-        if (educationItemRepository.findAll().isEmpty()) {
+        if (educationItemRepository.count() == 0) {
+            LOGGER.info("Saving default education items");
+
             // Med Uni Vienna
             EducationItem medUni = new EducationItem(2024, null, "assets/logo-muw.png");
             List<EducationItemTranslation> medTranslations = getMedUniTranslations(medUni);
