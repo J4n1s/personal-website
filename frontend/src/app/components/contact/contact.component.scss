@@ -1,7 +1,7 @@
 /* Contact Form Section */
 #contact-form-section {
   max-width: 800px;
-  margin: 0 auto; /* Center the form */
+  margin: 0 auto 30px;
   padding: 20px;
   background-color: var(--primary-bg); /* Light grey background */
   border-radius: 10px;
@@ -73,7 +73,7 @@ button.btn-light:active {
 /* Form Error Message Styling */
 small {
   display: block;
-  border-color: var(--error-cl);
+  color: var(--error-cl);
   margin-top: 5px; /* Small space between the input and error message */
   font-size: 0.9rem; /* Slightly smaller font for the error message */
   font-weight: bold;

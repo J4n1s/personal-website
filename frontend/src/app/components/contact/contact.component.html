@@ -1,43 +1,43 @@
-<section id="contact-form-section">
+<section *ngIf="textContent" id="contact-form-section">
   <form class="container" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <h1>Get in touch!</h1>
+    <h1>{{textContent.header}}</h1>
 
     <div class="row form-group">
-      <label for="name">Name*</label>
-      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+      <label for="name">{{textContent.name.label}}</label>
+      <input type="text" name="name" class="form-control" id="name" placeholder="{{textContent.name.placeholder}}"
              formControlName="name">
-      <small *ngIf="contactForm.controls['name'].touched && contactForm.controls['name'].errors?.['required']">Name is required</small>
+      <small *ngIf="contactForm.controls['name'].touched && contactForm.controls['name'].errors?.['required']">{{textContent.name.required}}</small>
     </div>
 
     <div class="row form-group">
-      <label for="mail">E-Mail*</label>
-      <input type="text" name="mail" class="form-control" id="mail" placeholder="E-Mail address"
+      <label for="mail">{{textContent.mail.label}}</label>
+      <input type="text" name="mail" class="form-control" id="mail" placeholder="{{textContent.mail.placeholder}}"
              formControlName="mail">
-      <small *ngIf="contactForm.controls['mail'].touched && contactForm.controls['mail'].errors?.['required']">E-Mail is required</small>
-      <small *ngIf="contactForm.controls['mail'].value !== '' && contactForm.controls['mail'].errors?.['email']">Value must be a valid E-Mail address</small>
+      <small *ngIf="contactForm.controls['mail'].touched && contactForm.controls['mail'].errors?.['required']">{{textContent.mail.required}}</small>
+      <small *ngIf="contactForm.controls['mail'].value !== '' && contactForm.controls['mail'].errors?.['email']">{{textContent.mail.email}}</small>
     </div>
 
     <div class="row form-group">
-      <label for="phone">Phone Number</label>
-      <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone number"
+      <label for="phone">{{textContent.phone.label}}</label>
+      <input type="text" name="phone" class="form-control" id="phone" placeholder="{{textContent.phone.placeholder}}"
              formControlName="phone">
     </div>
 
     <div class="row form-group">
-      <label for="message">Message*</label>
-      <textarea rows="10" name="message" class="form-control" id="message" placeholder="Your Message"
+      <label for="message">{{textContent.message.label}}</label>
+      <textarea rows="10" name="message" class="form-control" id="message" placeholder="{{textContent.message.placeholder}}"
                 formControlName="message"></textarea>
-      <small *ngIf="contactForm.controls['message'].touched && contactForm.controls['message'].errors?.['required']">Message is required</small>
+      <small *ngIf="contactForm.controls['message'].touched && contactForm.controls['message'].errors?.['required']">{{textContent.message.required}}</small>
     </div>
 
-    <button type="submit" class="btn btn-light">Submit Message</button>
+    <button type="submit" class="btn btn-light">{{textContent.submit}}</button>
   </form>
 
   <div *ngIf="submitted && !error" class="success-message">
-    <p>Thank you{{contactInformation?.name ? ' ' + contactInformation?.name : ''}}! Your message has been successfully submitted.</p>
-    <p>I will get in touch with you shortly!</p>
+    <p>{{textContent.success.part1}}{{contactInformation?.name ? ' ' + contactInformation?.name : ''}}{{textContent.success.part2}}</p>
+    <p>{{textContent.success.part3}}</p>
   </div>
   <div *ngIf="submitted && error" class="error-message">
-    <p>There was an error on my side. Please contact me directly using my E-Mail or Phone!</p>
+    <p>{{textContent.error}}</p>
   </div>
 </section>

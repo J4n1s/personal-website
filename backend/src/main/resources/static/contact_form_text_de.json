@@ -1,0 +1,30 @@
+{
+  "header": "Kontaktieren Sie mich!",
+  "name": {
+    "label": "Name*",
+    "placeholder": "Ihr Name",
+    "required": "Name ist erforderlich"
+  },
+  "mail": {
+    "label": "E-Mail*",
+    "placeholder": "E-Mail-Adresse",
+    "required": "E-Mail Adresse ist erforderlich",
+    "email": "Bitte geben Sie eine gültige E-Mail Adresse ein"
+  },
+  "phone": {
+    "label": "Telefonnummer",
+    "placeholder": "Ihre Telefonnummer"
+  },
+  "message": {
+    "label": "Nachricht*",
+    "placeholder": "Ihre Nachricht",
+    "required": "Nachricht ist erforderlich"
+  },
+  "submit": "Nachricht absenden",
+  "success": {
+    "part1": "Vielen Dank",
+    "part2": "! Ihre Nachricht wurde erfolgreich gesendet.",
+    "part3": "Ich werde mich in Kürze bei Ihnen melden!"
+  },
+  "error": "Es gab einen Fehler auf meiner Seite. Bitte kontaktieren Sie mich direkt per E-Mail oder Telefon!"
+}

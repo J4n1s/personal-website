@@ -1,0 +1,30 @@
+{
+  "header": "Get in touch!",
+  "name": {
+    "label": "Name*",
+    "placeholder": "Your Name",
+    "required": "Name is required"
+  },
+  "mail": {
+    "label": "E-Mail*",
+    "placeholder": "E-Mail address",
+    "required": "E-Mail is required",
+    "email": "Value must be a valid E-Mail address"
+  },
+  "phone": {
+    "label": "Phone Number",
+    "placeholder": "Phone number"
+  },
+  "message": {
+    "label": "Message*",
+    "placeholder": "Your Message",
+    "required": "Message is required"
+  },
+  "submit": "Submit Message",
+  "success": {
+    "part1": "Thank you",
+    "part2": "! Your message has been successfully submitted.",
+    "part3": "I will get in touch with you shortly!"
+  },
+  "error": "There was an error on my side. Please contact me directly by e-Mail or phone!"
+}
