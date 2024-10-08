@@ -21,7 +21,7 @@ export class EducationHistoryComponent {
 
   educationItems: EducationItem[] | undefined;
 
-  constructor(private educationItemService: EducationItemService, private globals: Globals) {
+  constructor(private educationItemService: EducationItemService) {
   }
 
   ngOnInit() {
@@ -39,6 +39,4 @@ export class EducationHistoryComponent {
       }
     })
   }
-
-  protected readonly toString = toString;
 }
