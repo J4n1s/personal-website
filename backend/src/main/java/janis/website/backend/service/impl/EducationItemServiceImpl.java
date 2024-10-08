@@ -21,7 +21,7 @@ public class EducationItemServiceImpl implements EducationItemService {
 
     @Override
     public List<EducationItem> getAllByLanguage(String language) {
-        LOGGER.info("Getting all education items for {}", language);
+        LOGGER.info("Getting all education items by language {}", language);
 
         List<EducationItem> educationItems = educationItemRepository.findAllByLanguageOrderByStartingYear(language);
         if (educationItems == null || educationItems.isEmpty()) {
