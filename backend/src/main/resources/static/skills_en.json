@@ -1,0 +1,11 @@
+[
+  {"name": "Java", "level": 85},
+  {"name": "Python", "level": 75},
+  {"name": "SQL", "level": 70},
+  {"name": "HTML/CSS", "level": 65},
+  {"name": "JavaScript", "level": 70},
+  {"name": "IT-Security", "level": 70},
+  {"name": "REST", "level": 80},
+  {"name": "Design", "level": 45},
+  {"name": "Project Management", "level": 55}
+]
