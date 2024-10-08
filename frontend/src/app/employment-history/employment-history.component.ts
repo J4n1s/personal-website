@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
+import {NgClass, NgForOf, NgOptimizedImage, NgStyle} from "@angular/common";
 import {JobItem} from "../dtos/job-item";
 import {JobItemService} from "../services/job-item.service";
 import {Globals} from "../globals";
@@ -11,7 +11,8 @@ import {HttpErrorResponse} from "@angular/common/http";
   imports: [
     NgClass,
     NgForOf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgStyle
   ],
   templateUrl: './employment-history.component.html',
   styleUrls: ['./employment-history.component.scss', '../timeline/timeline.component.scss'],
