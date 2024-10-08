@@ -1,0 +1,104 @@
+/* Contact Form Section */
+#contact-form-section {
+  max-width: 800px;
+  margin: 0 auto; /* Center the form */
+  padding: 20px;
+  background-color: var(--primary-bg); /* Light grey background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+form h1 {
+  text-align: center;
+  color: var(--secondary-cl); /* Soft blue for the header */
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: var(--primary-cl); /* Dark grey for labels */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input.form-control,
+textarea.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  color: var(--primary-cl); /* Dark grey text */
+  background-color: white; /* White background for inputs */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+  border-color: var(--secondary-cl); /* Soft blue on focus */
+  outline: none;
+}
+
+textarea.form-control {
+  resize: none; /* Disable resizing */
+}
+
+button.btn-light {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--secondary-bg); /* Dark grey for button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-light:hover {
+  background-color: var(--secondary-cl); /* Soft blue on hover */
+}
+
+button.btn-light:active {
+  background-color: var(--tertiary-cl); /* Muted orange when active */
+}
+
+/* Form Error Message Styling */
+small {
+  display: block;
+  border-color: var(--error-cl);
+  margin-top: 5px; /* Small space between the input and error message */
+  font-size: 0.9rem; /* Slightly smaller font for the error message */
+  font-weight: bold;
+}
+
+input.form-control.ng-invalid.ng-touched {
+  border-color: var(--error-cl);
+}
+
+textarea.form-control.ng-invalid.ng-touched {
+  border-color: var(--error-cl);
+}
+
+/* Success Message */
+.success-message {
+  text-align: center;
+  color: var(--primary-cl);
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* Error Message */
+.error-message {
+  text-align: center;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
