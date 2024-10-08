@@ -1,0 +1,14 @@
+<div class="timeline">
+  <div *ngFor="let jobItem of jobItems; let i = index" [ngClass]="i % 2 === 0 ? 'container left' : 'container right'">
+    <div class="content">
+      <div class="container-header">
+        <img src="{{jobItem.logoUrl}}" alt="Logo">
+        <div class="container-text">
+          <h2>{{jobItem.employerName}}</h2>
+          <p class="time-range">{{ jobItem.startingYear }}-{{ jobItem.endingYear ? jobItem.endingYear : 'NOW' }}</p>
+        </div>
+      </div>
+      <p>{{jobItem.jobDescription}}</p>
+    </div>
+  </div>
+</div>

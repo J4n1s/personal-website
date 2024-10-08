@@ -43,7 +43,7 @@ public class JobItemGenerator {
             jobItemRepository.save(medbits);
 
             // Fitinn
-            JobItem fitinn = new JobItem(2020, 2021, "assets/logo-fitinn.png");
+            JobItem fitinn = new JobItem(2020, 2021, "assets/logo-fitinn.svg");
             List<JobItemTranslation> fitinnTranslations = getFitinnTranslations(fitinn);
             fitinn.setTranslations(fitinnTranslations);
             jobItemRepository.save(fitinn);
