@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {EducationItemService} from '../services/education-item.service'
-import {EducationItem} from "../dtos/education-item";
+import {EducationItemService} from '../../services/education-item.service'
+import {EducationItem} from "../../dtos/education-item";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
-import {Globals} from "../globals";
+import {Globals} from "../../globals";
 
 
 @Component({

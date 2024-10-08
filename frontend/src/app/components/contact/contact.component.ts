@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Validators, ReactiveFormsModule, FormBuilder} from "@angular/forms";
-import {ContactInformation} from "../dtos/contact-information";
-import {ContactService} from "../services/contact-service";
+import {ContactInformation} from "../../dtos/contact-information";
+import {ContactService} from "../../services/contact-service";
 
 @Component({
   selector: 'app-contact',

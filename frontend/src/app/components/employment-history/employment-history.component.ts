@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {NgClass, NgForOf, NgOptimizedImage, NgStyle} from "@angular/common";
-import {JobItem} from "../dtos/job-item";
-import {JobItemService} from "../services/job-item.service";
-import {Globals} from "../globals";
+import {JobItem} from "../../dtos/job-item";
+import {JobItemService} from "../../services/job-item.service";
+import {Globals} from "../../globals";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
