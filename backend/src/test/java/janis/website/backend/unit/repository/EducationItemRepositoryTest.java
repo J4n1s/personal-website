@@ -16,9 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DataJpaTest
 public class EducationItemRepositoryTest {
 
-    @Autowired
-    private EducationItemRepository educationItemRepository;
+    private final EducationItemRepository educationItemRepository;
     private EducationItem educationItem;
+
+    @Autowired
+    public EducationItemRepositoryTest(EducationItemRepository educationItemRepository) {
+        this.educationItemRepository = educationItemRepository;
+    }
+
 
     @BeforeEach
     public void setUp() {

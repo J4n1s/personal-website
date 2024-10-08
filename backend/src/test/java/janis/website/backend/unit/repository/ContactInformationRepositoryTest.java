@@ -1,6 +1,5 @@
 package janis.website.backend.unit.repository;
 
-import janis.website.backend.controller.mapper.EducationItemMapper;
 import janis.website.backend.entity.ContactInformation;
 import janis.website.backend.repository.ContactInformationRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,9 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 public class ContactInformationRepositoryTest {
 
-    @Autowired
-    private ContactInformationRepository repository;
+    private final ContactInformationRepository repository;
     private ContactInformation contact;
+
+    @Autowired
+    public ContactInformationRepositoryTest(ContactInformationRepository repository) {
+        this.repository = repository;
+    }
 
     @BeforeEach
     public void setUp() {

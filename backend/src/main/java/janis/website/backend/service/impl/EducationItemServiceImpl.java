@@ -16,8 +16,12 @@ public class EducationItemServiceImpl implements EducationItemService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
+    private final EducationItemRepository educationItemRepository;
+
     @Autowired
-    private EducationItemRepository educationItemRepository;
+    public EducationItemServiceImpl(EducationItemRepository educationItemRepository) {
+        this.educationItemRepository = educationItemRepository;
+    }
 
     @Override
     public List<EducationItem> getAllByLanguage(String language) {

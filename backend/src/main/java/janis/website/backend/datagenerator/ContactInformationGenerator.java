@@ -6,8 +6,6 @@ import janis.website.backend.repository.ContactInformationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
@@ -19,8 +17,12 @@ public class ContactInformationGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
+    private final ContactInformationRepository contactInformationRepository;
+
     @Autowired
-    private ContactInformationRepository contactInformationRepository;
+    public ContactInformationGenerator(ContactInformationRepository contactInformationRepository) {
+        this.contactInformationRepository = contactInformationRepository;
+    }
 
     @PostConstruct
     private void generateData() {

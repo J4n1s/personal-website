@@ -18,8 +18,12 @@ public class EducationItemDataGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
+    private final EducationItemRepository educationItemRepository;
+
     @Autowired
-    private EducationItemRepository educationItemRepository;
+    public EducationItemDataGenerator(EducationItemRepository educationItemRepository) {
+        this.educationItemRepository = educationItemRepository;
+    }
 
     @PostConstruct
     private void generateData() {
