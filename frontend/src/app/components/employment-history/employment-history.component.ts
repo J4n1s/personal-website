@@ -15,7 +15,7 @@ import {HttpErrorResponse} from "@angular/common/http";
     NgStyle
   ],
   templateUrl: './employment-history.component.html',
-  styleUrls: ['./employment-history.component.scss', '../timeline/timeline.component.scss'],
+  styleUrls: ['./employment-history.component.scss', '../../styles/timeline.scss'],
 })
 export class EmploymentHistoryComponent {
 

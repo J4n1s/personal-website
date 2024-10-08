@@ -14,10 +14,10 @@ import {Globals} from "../../globals";
     NgForOf,
     NgOptimizedImage
   ],
-  templateUrl: './timeline.component.html',
-  styleUrl: './timeline.component.scss'
+  templateUrl: './education-history.component.html',
+  styleUrls: ['./education-history.component.scss', '../../styles/timeline.scss']
 })
-export class TimelineComponent {
+export class EducationHistoryComponent {
 
   educationItems: EducationItem[] | undefined;
 
