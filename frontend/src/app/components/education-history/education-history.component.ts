@@ -7,7 +7,7 @@ import {Globals} from "../../globals";
 
 
 @Component({
-  selector: 'app-timeline',
+  selector: 'app-education-history',
   standalone: true,
   imports: [
     NgClass,
