@@ -28,6 +28,7 @@ public class ContactInformationController {
         this.contactInformationMapper = contactInformationMapper;
     }
 
+    @CrossOrigin
     @GetMapping
     ResponseEntity<List<ContactInformationDto>> all() {
         LOGGER.info("GET api/v1/contact");
@@ -36,6 +37,7 @@ public class ContactInformationController {
         );
     }
 
+    @CrossOrigin
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     ContactInformationDto create(@RequestBody ContactInformationDto contactInformationDto) {
