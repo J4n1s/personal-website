@@ -33,7 +33,7 @@ public class ContactInformationController {
     ResponseEntity<List<ContactInformationDto>> all() {
         LOGGER.info("GET api/v1/contact");
         return ResponseEntity.ok(
-                contactInformationMapper.contactInformationToContactInformationDto(contactInformationService.getAll())
+                contactInformationMapper.entityToDto(contactInformationService.getAll())
         );
     }
 
@@ -42,7 +42,9 @@ public class ContactInformationController {
     @ResponseStatus(HttpStatus.CREATED)
     ContactInformationDto create(@RequestBody ContactInformationDto contactInformationDto) {
         LOGGER.info("POST api/v1/contact");
-        ContactInformation contactInformation = contactInformationMapper.contactInformationDtoToContactInformation(contactInformationDto);
-        return contactInformationMapper.contactInformationToContactInformationDto(contactInformationService.create(contactInformation));
+        System.out.println(contactInformationDto);
+        ContactInformation contactInformation = contactInformationMapper.dtoToEntity(contactInformationDto);
+        System.out.println(contactInformation);
+        return contactInformationMapper.entityToDto(contactInformationService.create(contactInformation));
     }
 }
