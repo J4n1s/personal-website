@@ -7,8 +7,10 @@ import janis.website.backend.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
@@ -24,35 +26,45 @@ public class TextServiceImpl implements TextService {
 
     @Override
     public JsonNode getContactFormText(String language) {
-        String filename = DATA_PATH + "contact_form_text_" + language + ".json";
-        try {
-            String jsonContent = Files.readString(Paths.get(filename));
-            return objectMapper.readTree(jsonContent);
-        } catch (IOException e) {
-            throw new NotFoundException(e);
-        }
-
+        String fileBasename = "contact_form_text";
+        return getJsonContent(fileBasename, language);
     }
 
     @Override
     public JsonNode getResumeText(String language) {
-        String filename = DATA_PATH + "resume_text_" + language + ".json";
-        try {
-            String jsonContent = Files.readString(Paths.get(filename));
-            return objectMapper.readTree(jsonContent);
-        } catch (IOException e) {
-            throw new NotFoundException(e);
-        }
+        String fileBasename = "resume_text";
+        return getJsonContent(fileBasename, language);
     }
 
     @Override
     public JsonNode getInterestsText(String language) {
-        String filename = DATA_PATH + "interests_text_" + language + ".json";
+        String fileBasename = "interests_text";
+        return getJsonContent(fileBasename, language);
+    }
+
+    private JsonNode getJsonContent(String fileBasename, String language) {
+        String filename = DATA_PATH + fileBasename + "_" + language + ".json";
         try {
             String jsonContent = Files.readString(Paths.get(filename));
             return objectMapper.readTree(jsonContent);
         } catch (IOException e) {
-            throw new NotFoundException(e);
+            return getJsonContentOfAnyLanguage(fileBasename, e);
         }
+    }
+
+    private JsonNode getJsonContentOfAnyLanguage(String fileBasename, Exception e) {
+        Path dataDir = Paths.get(DATA_PATH);
+        File[] jsonFiles = dataDir.toFile().listFiles((dir, name) -> name.startsWith(fileBasename) && name.endsWith(".json"));
+
+        if (jsonFiles != null && jsonFiles.length > 0) {
+            File jsonFile = jsonFiles[0];
+            try {
+                String content = Files.readString(jsonFile.toPath());
+                return objectMapper.readTree(content);
+            } catch (IOException exception) {
+                throw new NotFoundException(exception);
+            }
+        }
+        throw new NotFoundException(e);
     }
 }
