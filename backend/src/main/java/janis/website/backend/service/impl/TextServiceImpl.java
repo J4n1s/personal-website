@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import janis.website.backend.exception.NotFoundException;
 import janis.website.backend.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -39,6 +37,17 @@ public class TextServiceImpl implements TextService {
     @Override
     public JsonNode getResumeText(String language) {
         String filename = DATA_PATH + "resume_text_" + language + ".json";
+        try {
+            String jsonContent = Files.readString(Paths.get(filename));
+            return objectMapper.readTree(jsonContent);
+        } catch (IOException e) {
+            throw new NotFoundException(e);
+        }
+    }
+
+    @Override
+    public JsonNode getInterestsText(String language) {
+        String filename = DATA_PATH + "interests_text_" + language + ".json";
         try {
             String jsonContent = Files.readString(Paths.get(filename));
             return objectMapper.readTree(jsonContent);

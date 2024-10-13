@@ -52,4 +52,16 @@ public class TextController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @CrossOrigin
+    @GetMapping(value = "/interests")
+    ResponseEntity<JsonNode> getInterestsText() {
+        LOGGER.info("GET api/v1/text/interests");
+        try {
+            return ResponseEntity.ok(textService.getInterestsText(languageService.getLanguage()));
+        } catch (NotFoundException e) {
+            LOGGER.error("Error getting interests text", e);
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
