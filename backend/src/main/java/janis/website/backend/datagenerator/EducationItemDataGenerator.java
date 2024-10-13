@@ -52,9 +52,13 @@ public class EducationItemDataGenerator {
 
     private static List<EducationItemTranslation> getMedUniTranslations(EducationItem educationItem) {
         EducationItemTranslation medGerman = new EducationItemTranslation("de","Medizinische Universität Wien",
-                "Med Uni Wien", "Diplomstudium Humanmedizin", "Beschreibung");
+                "Med Uni Wien", "Diplomstudium Humanmedizin", "Nach Abschluss der meisten für " +
+                "Informatik relevanten Kurse habe ich das Diplomstudium Humanmedizin angefangen. Ich freue mich dieses Studium anzugehen " +
+                "und hoffe mich bereits früh in der medizinschen Forschung einbringen zu können.");
         EducationItemTranslation medEnglish = new EducationItemTranslation("en", "Medical University of Vienna",
-                "Med Uni Vienna", "Medicine Degree", "Description");
+                "Med Uni Vienna", "Medicine Degree", "After finishing most of the relevant " +
+                "courses for my Software Engineering studies I'm thrilled to study for my medical degree. I hope that I will be able " +
+                "to contribute to medical research at an early stage.");
         medGerman.setEducationItem(educationItem);
         medEnglish.setEducationItem(educationItem);
         List<EducationItemTranslation> translations = new ArrayList<>();
@@ -65,9 +69,13 @@ public class EducationItemDataGenerator {
 
     private static List<EducationItemTranslation> getTuTranslations(EducationItem educationItem) {
         EducationItemTranslation tuGerman = new EducationItemTranslation("de", "Technische Universität Wien",
-                "TU Wien", "BSc Software Engineering", "Beschreibung");
+                "TU Wien", "BSc Software Engineering", "Direkt nach meiner Matura habe ich mein " +
+                "Informatikstudium mit der Vertiefung Software Engineering begonnen. In meiner Zeit auf der TU habe ich viele spannende " +
+                "Aspekte der Informatik kennengelernt und benötige nun nur noch meine Abschlussarbeit um das Studium zu beenden.");
         EducationItemTranslation tuEnglish = new EducationItemTranslation("en", "Technical University of Vienna",
-                "TU Vienna", "BSc Software Engineering", "Description");
+                "TU Vienna", "BSc Software Engineering", "Immediately after graduating from high school, " +
+                "I started my degree in computer science with a specialization in software engineering. During my time at TU, I got to know " +
+                "many exciting aspects of computer science. To get my degree I only need to finish my final thesis.");
         tuGerman.setEducationItem(educationItem);
         tuEnglish.setEducationItem(educationItem);
         List<EducationItemTranslation> translations = new ArrayList<>();
@@ -78,9 +86,11 @@ public class EducationItemDataGenerator {
 
     private static List<EducationItemTranslation> getBSGTranslations(EducationItem educationItem) {
         EducationItemTranslation bsgGerman = new EducationItemTranslation("de", "Ballsportgymnasium Wien",
-                "BSG Wien", "Matura (Ausgezeichneter Erfolg)", "Beschreibung");
+                "BSG Wien", "Matura (Ausgezeichneter Erfolg)", "Meine Matura habe ich in einem Gymnasium " +
+                "für Leistungssportler absolviert. Neben meiner schulischen Ausbildung habe ich dort American Football bei den Vienna Vikings gespielt.");
         EducationItemTranslation bsgEnglish = new EducationItemTranslation("en", "Ballsportgymnasium Vienna",
-                "TU Vienna", "Matura (Excellent success)", "Description");
+                "TU Vienna", "Matura (Excellent success)", "I went to a special high school for " +
+                "competitive athletes. In addition to my school education, I played American Football there for the Vienna Vikings.");
         bsgGerman.setEducationItem(educationItem);
         bsgEnglish.setEducationItem(educationItem);
         List<EducationItemTranslation> translations = new ArrayList<>();

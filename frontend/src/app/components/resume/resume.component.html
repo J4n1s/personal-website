@@ -1,31 +1,24 @@
 <div class="cv-container">
   <section id="cv-header">
-    <h1>Janis Schneeberger</h1>
+    <h1>{{ textContent.header }}</h1>
     <div class="cv-content">
       <div class="profile-pic">
-        <img src="assets/profile_photo.jpg" alt="Profile Picture">
+        <img src="assets/profile_photo.jpg" alt="{{ textContent.pictureAlt }}">
       </div>
       <div class="about-me">
-        <h2>About Me</h2>
-        <p>I am a dedicated Software Engineering student with a passion for backend
-          engineering, security, and building reliable systems. My academic journey
-          has equipped me with a strong foundation in software engineering
-          principles, and I am keen to apply and deepen these skills in real-world
-          scenarios.</p>
+        <h2>{{ textContent.aboutMe.title }}</h2>
+        <p>{{ textContent.aboutMe.text }}.</p>
       </div>
     </div>
   </section>
   <section id="work-experience">
-    <h2 class="timeline-header">Work Experience</h2>
-    <p class="section-summary">During my time as I student I always wanted to apply my learned skills in practice
-      and thus already gathered some work experience.</p>
+    <h2 class="timeline-header">{{ textContent.workExperience.title }}</h2>
+    <p class="section-summary">{{ textContent.workExperience.text }}</p>
     <app-employment-history></app-employment-history>
   </section>
   <section id="education">
-    <h2 class="timeline-header">Education</h2>
-    <p class="section-summary">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
+    <h2 class="timeline-header">{{ textContent.education.title }}</h2>
+    <p class="section-summary">{{ textContent.education.text }}</p>
     <app-education-history></app-education-history>
   </section>
 

@@ -24,7 +24,7 @@ public class JobItemTranslation {
     @Column(nullable = false)
     private String jobTitle;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String jobDescription;
 
     @ToString.Exclude

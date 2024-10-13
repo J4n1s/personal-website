@@ -13,6 +13,7 @@ body, html {
   padding: 20px;
   box-sizing: border-box;
   position: relative;
+  border-bottom: 1px solid var(--primary-cl);
 }
 
 .content {
@@ -68,18 +69,6 @@ body, html {
 .interest-section {
   background-color: var(--primary-bg);
   transition: background-color 0.5s ease; /* Smooth color transitions between sections */
-}
-
-#interest1 {
-  background-color: #f0f0f0; /* Light grey for Photography */
-}
-
-#interest2 {
-  background-color: #e0f7fa; /* Soft teal for Traveling */
-}
-
-#interest3 {
-  background-color: #ffe0b2; /* Soft peach for Art & Design */
 }
 
 /* Responsive Adjustments */

@@ -17,13 +17,10 @@ import java.nio.file.Paths;
 public class TextServiceImpl implements TextService {
 
     private static final String DATA_PATH = "src/main/resources/static/";
-
-    private final ResourceLoader resourceLoader;
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public TextServiceImpl(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
-        this.resourceLoader = resourceLoader;
+    public TextServiceImpl(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 
@@ -37,5 +34,16 @@ public class TextServiceImpl implements TextService {
             throw new NotFoundException(e);
         }
 
+    }
+
+    @Override
+    public JsonNode getResumeText(String language) {
+        String filename = DATA_PATH + "resume_text_" + language + ".json";
+        try {
+            String jsonContent = Files.readString(Paths.get(filename));
+            return objectMapper.readTree(jsonContent);
+        } catch (IOException e) {
+            throw new NotFoundException(e);
+        }
     }
 }

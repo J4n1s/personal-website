@@ -15,4 +15,8 @@ export class TextService {
   getContactFormText(): Observable<any> {
     return this.httpClient.get<any>(this.textBaseUri + '/contact-form');
   }
+
+  getResumeText(): Observable<any> {
+    return this.httpClient.get<any>(this.textBaseUri + '/resume');
+  }
 }

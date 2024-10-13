@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Validators, ReactiveFormsModule, FormBuilder, FormGroup, FormControl} from "@angular/forms";
 import {ContactInformation} from "../../dtos/contact-information";
 import {ContactService} from "../../services/contact-service";
@@ -16,7 +16,7 @@ import {HttpErrorResponse} from "@angular/common/http";
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
   submitted = false;
   error = false;

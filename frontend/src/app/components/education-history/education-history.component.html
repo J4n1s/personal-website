@@ -5,10 +5,10 @@
         <img src="{{educationItem.logoUrl}}" alt="Logo">
         <div class="container-text">
           <h2>{{educationItem.schoolName}}</h2>
-          <p class="time-range">{{ educationItem.startingYear }}-{{ educationItem.endingYear ? educationItem.endingYear : 'NOW' }}</p>
+          <p class="time-range">{{ educationItem.startingYear }}-{{ educationItem.endingYear ? educationItem.endingYear : 'NOW' }} | {{educationItem.studyTitle}}</p>
         </div>
       </div>
-      <p>{{educationItem.description}}</p>
+      <p class="timeline-description">{{educationItem.description}}</p>
     </div>
   </div>
 </div>

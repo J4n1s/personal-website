@@ -40,4 +40,16 @@ public class TextController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @CrossOrigin
+    @GetMapping(value = "/resume")
+    ResponseEntity<JsonNode> getResumeText() {
+        LOGGER.info("GET api/v1/text/resume");
+        try {
+            return ResponseEntity.ok(textService.getResumeText(languageService.getLanguage()));
+        } catch (NotFoundException e) {
+            LOGGER.error("Error getting resume text", e);
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

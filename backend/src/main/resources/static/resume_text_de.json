@@ -1,0 +1,16 @@
+{
+  "header": "Janis Schneeberger",
+  "pictureAlt": "Profilbild",
+  "aboutMe": {
+    "title": "Über mich",
+    "text": "Ich studiere Software Engineering und habe mich während meines Studiums besonders auf Backend Entwicklung und  IT-Security fokussiert. Im Zuge meiner universitären Ausbildung habe ich viel über Prinzipien und Abläufe der Softwareentwicklung gelernt. Ich freue mich dieses Wissen in der Praxis anzuwenden und zu vertiefen."
+  },
+  "workExperience": {
+    "title": "Berufserfahrung",
+    "text": "Während meines Studiums habe ich immer versucht, meine erlernten Fähigkeiten in der Praxis anzuwenden und konnte daher bereits etwas Berufserfahrung sammeln."
+  },
+  "education": {
+    "title": "Bildung",
+    "text": "Ich habe meine Matura in Wien abgeschlossen und anschließend meine akademische Ausbildung im Bereich Informatik begonnen. Einige Jahre später wechselte ich zur Medizin und studiere nun auf der Medizinischen Universität Wien."
+  }
+}
