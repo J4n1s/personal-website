@@ -6,7 +6,6 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper
 public interface ContactInformationMapper {
 
     /**
@@ -26,8 +25,8 @@ public interface ContactInformationMapper {
 
     /**
      * Maps a list of ContactInformation objects to a list of ContactInformationDtos
-     * @param contactInformation List of ContactInformation objects that will be mapped
+     * @param contactInformationList List of ContactInformation objects that will be mapped
      * @return Mapped list of ContactInformationDtos
      */
-    List<ContactInformationDto> entityToDto(List<ContactInformation> contactInformation);
+    List<ContactInformationDto> entityToDto(List<ContactInformation> contactInformationList);
 }
