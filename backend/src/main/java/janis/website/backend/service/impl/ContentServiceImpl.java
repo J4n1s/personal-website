@@ -3,7 +3,7 @@ package janis.website.backend.service.impl;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import janis.website.backend.exception.NotFoundException;
-import janis.website.backend.service.TextService;
+import janis.website.backend.service.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,31 +14,31 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
-public class TextServiceImpl implements TextService {
+public class ContentServiceImpl implements ContentService {
 
     private static final String DATA_PATH = "src/main/resources/static/";
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public TextServiceImpl(ObjectMapper objectMapper) {
+    public ContentServiceImpl(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 
     @Override
-    public JsonNode getContactFormText(String language) {
-        String fileBasename = "contact_form_text";
+    public JsonNode getContactFormContent(String language) {
+        String fileBasename = "contact_form_content";
         return getJsonContent(fileBasename, language);
     }
 
     @Override
-    public JsonNode getResumeText(String language) {
-        String fileBasename = "resume_text";
+    public JsonNode getResumeContent(String language) {
+        String fileBasename = "resume_content";
         return getJsonContent(fileBasename, language);
     }
 
     @Override
-    public JsonNode getInterestsText(String language) {
-        String fileBasename = "interests_text";
+    public JsonNode getInterestsContent(String language) {
+        String fileBasename = "interests_content";
         return getJsonContent(fileBasename, language);
     }
 
