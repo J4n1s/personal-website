@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {EmploymentHistoryComponent} from "../employment-history/employment-history.component";
 import {EducationHistoryComponent} from "../education-history/education-history.component";
 import {Skill} from "../../dtos/skill";
-import {ResumeService} from "../../services/resume.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForOf, NgStyle} from "@angular/common";
 import {ContentService} from "../../services/content.service";
@@ -24,8 +23,7 @@ export class ResumeComponent implements OnInit {
   skills: Skill[] | undefined;
   resumeContent!: any;
 
-  constructor(private resumeService: ResumeService,
-              private contentService: ContentService) {
+  constructor(private contentService: ContentService) {
   }
 
   ngOnInit() {
@@ -34,7 +32,7 @@ export class ResumeComponent implements OnInit {
   }
 
   private loadSkills() {
-    this.resumeService.getAllSkills().subscribe({
+    this.contentService.getAllSkills().subscribe({
       next: (skills: Skill[]) => {
         this.skills = skills;
         console.log(this.skills);
