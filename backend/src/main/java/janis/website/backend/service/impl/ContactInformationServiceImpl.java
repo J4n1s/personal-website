@@ -36,6 +36,7 @@ public class ContactInformationServiceImpl implements ContactInformationService 
     public ContactInformation create(ContactInformation contactInformation) {
         validateContactInformation(contactInformation);
         emailService.sendEmail(getConfirmationEmail(contactInformation));
+        emailService.sendEmail(getNotificationEmail(contactInformation));
         return contactInformationRepository.save(contactInformation);
     }
 
@@ -65,5 +66,16 @@ public class ContactInformationServiceImpl implements ContactInformationService 
                 
                 Best regards,
                 Janis Schneeberger""");
+    }
+
+    private EmailDto getNotificationEmail(ContactInformation contactInformation) {
+        String message = "You received a new contact request from:\n" +
+                contactInformation.getName() + "\n" +
+                "Mail: " + contactInformation.getMail() + "\n" +
+                "Phone: " + contactInformation.getPhone() + "\n" + "\n" +
+                "The following message was sent:\n\n" +
+                contactInformation.getMessage() + "\n";
+        return new EmailDto("janis.schneeberger@outlook.com", contactInformation.getName() + " wants to get in touch",
+                message);
     }
 }
