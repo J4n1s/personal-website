@@ -1,6 +1,9 @@
 package janis.website.backend.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import janis.website.backend.controller.dto.SkillDto;
+
+import java.util.List;
 
 public interface ContentService {
 
@@ -9,4 +12,6 @@ public interface ContentService {
     JsonNode getResumeContent(String language);
 
     JsonNode getInterestsContent(String language);
+
+    List<SkillDto> getSkills(String language);
 }

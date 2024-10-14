@@ -1,6 +1,7 @@
 package janis.website.backend.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import janis.website.backend.controller.dto.SkillDto;
 import janis.website.backend.exception.NotFoundException;
 import janis.website.backend.service.LanguageService;
 import janis.website.backend.service.ContentService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.invoke.MethodHandles;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/content")
@@ -61,6 +63,18 @@ public class ContentController {
             return ResponseEntity.ok(contentService.getInterestsContent(languageService.getLanguage()));
         } catch (NotFoundException e) {
             LOGGER.error("Error getting interests content", e);
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/skills")
+    ResponseEntity<List<SkillDto>> getSkills() {
+        LOGGER.info("GET api/v1/resume/skills");
+        try {
+            return ResponseEntity.ok(contentService.getSkills(languageService.getLanguage()));
+        } catch (NotFoundException e) {
+            LOGGER.error("getSkills failed", e);
             return ResponseEntity.notFound().build();
         }
     }
