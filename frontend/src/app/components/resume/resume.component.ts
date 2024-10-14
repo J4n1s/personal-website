@@ -5,7 +5,7 @@ import {Skill} from "../../dtos/skill";
 import {ResumeService} from "../../services/resume.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForOf, NgStyle} from "@angular/common";
-import {TextService} from "../../services/text.service";
+import {ContentService} from "../../services/content.service";
 
 @Component({
   selector: 'app-resume',
@@ -22,15 +22,15 @@ import {TextService} from "../../services/text.service";
 export class ResumeComponent implements OnInit {
 
   skills: Skill[] | undefined;
-  textContent!: any;
+  resumeContent!: any;
 
   constructor(private resumeService: ResumeService,
-              private textService: TextService) {
+              private contentService: ContentService) {
   }
 
   ngOnInit() {
     this.loadSkills();
-    this.loadTextContent()
+    this.loadResumeContent()
   }
 
   private loadSkills() {
@@ -45,10 +45,10 @@ export class ResumeComponent implements OnInit {
     })
   }
 
-  private loadTextContent() {
-    this.textService.getResumeText().subscribe({
-      next: (textContent: any) => {
-        this.textContent = textContent;
+  private loadResumeContent() {
+    this.contentService.getResumeContent().subscribe({
+      next: (resumeContent: any) => {
+        this.resumeContent = resumeContent;
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);

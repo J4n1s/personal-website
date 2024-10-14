@@ -3,7 +3,7 @@ import {Validators, ReactiveFormsModule, FormBuilder, FormGroup, FormControl} fr
 import {ContactInformation} from "../../dtos/contact-information";
 import {ContactService} from "../../services/contact-service";
 import {NgIf} from "@angular/common";
-import {TextService} from "../../services/text.service";
+import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
@@ -22,10 +22,10 @@ export class ContactComponent implements OnInit {
   error = false;
   contactInformation?: ContactInformation;
   contactForm!: FormGroup;
-  textContent!: any;
+  formContent!: any;
 
   constructor(private contactService: ContactService,
-              private textService: TextService) {
+              private contentService: ContentService) {
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class ContactComponent implements OnInit {
       message: new FormControl("", Validators.required)
       }
     )
-    this.loadTextContent();
+    this.loadFormContent();
   }
 
   onSubmit() {
@@ -56,11 +56,11 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  private loadTextContent() {
-    this.textService.getContactFormText().subscribe({
-      next: (textContent: any) => {
-        this.textContent = textContent;
-        console.log(this.textContent);
+  private loadFormContent() {
+    this.contentService.getContactFormContent().subscribe({
+      next: (formContent: any) => {
+        this.formContent = formContent;
+        console.log(this.formContent);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);

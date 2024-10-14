@@ -1,43 +1,43 @@
-<section *ngIf="textContent" id="contact-form-section">
+<section *ngIf="formContent" id="contact-form-section">
   <form class="container" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <h1>{{textContent.header}}</h1>
+    <h1>{{formContent.header}}</h1>
 
     <div class="row form-group">
-      <label for="name">{{textContent.name.label}}</label>
-      <input type="text" name="name" class="form-control" id="name" placeholder="{{textContent.name.placeholder}}"
+      <label for="name">{{formContent.name.label}}</label>
+      <input type="text" name="name" class="form-control" id="name" placeholder="{{formContent.name.placeholder}}"
              formControlName="name">
-      <small *ngIf="contactForm.controls['name'].touched && contactForm.controls['name'].errors?.['required']">{{textContent.name.required}}</small>
+      <small *ngIf="contactForm.controls['name'].touched && contactForm.controls['name'].errors?.['required']">{{formContent.name.required}}</small>
     </div>
 
     <div class="row form-group">
-      <label for="mail">{{textContent.mail.label}}</label>
-      <input type="text" name="mail" class="form-control" id="mail" placeholder="{{textContent.mail.placeholder}}"
+      <label for="mail">{{formContent.mail.label}}</label>
+      <input type="text" name="mail" class="form-control" id="mail" placeholder="{{formContent.mail.placeholder}}"
              formControlName="mail">
-      <small *ngIf="contactForm.controls['mail'].touched && contactForm.controls['mail'].errors?.['required']">{{textContent.mail.required}}</small>
-      <small *ngIf="contactForm.controls['mail'].value !== '' && contactForm.controls['mail'].errors?.['email']">{{textContent.mail.email}}</small>
+      <small *ngIf="contactForm.controls['mail'].touched && contactForm.controls['mail'].errors?.['required']">{{formContent.mail.required}}</small>
+      <small *ngIf="contactForm.controls['mail'].value !== '' && contactForm.controls['mail'].errors?.['email']">{{formContent.mail.email}}</small>
     </div>
 
     <div class="row form-group">
-      <label for="phone">{{textContent.phone.label}}</label>
-      <input type="text" name="phone" class="form-control" id="phone" placeholder="{{textContent.phone.placeholder}}"
+      <label for="phone">{{formContent.phone.label}}</label>
+      <input type="text" name="phone" class="form-control" id="phone" placeholder="{{formContent.phone.placeholder}}"
              formControlName="phone">
     </div>
 
     <div class="row form-group">
-      <label for="message">{{textContent.message.label}}</label>
-      <textarea rows="10" name="message" class="form-control" id="message" placeholder="{{textContent.message.placeholder}}"
+      <label for="message">{{formContent.message.label}}</label>
+      <textarea rows="10" name="message" class="form-control" id="message" placeholder="{{formContent.message.placeholder}}"
                 formControlName="message"></textarea>
-      <small *ngIf="contactForm.controls['message'].touched && contactForm.controls['message'].errors?.['required']">{{textContent.message.required}}</small>
+      <small *ngIf="contactForm.controls['message'].touched && contactForm.controls['message'].errors?.['required']">{{formContent.message.required}}</small>
     </div>
 
-    <button type="submit" class="btn btn-light">{{textContent.submit}}</button>
+    <button type="submit" class="btn btn-light">{{formContent.submit}}</button>
   </form>
 
   <div *ngIf="submitted && !error" class="success-message">
-    <p>{{textContent.success.part1}}{{contactInformation?.name ? ' ' + contactInformation?.name : ''}}{{textContent.success.part2}}</p>
-    <p>{{textContent.success.part3}}</p>
+    <p>{{formContent.success.part1}}{{contactInformation?.name ? ' ' + contactInformation?.name : ''}}{{formContent.success.part2}}</p>
+    <p>{{formContent.success.part3}}</p>
   </div>
   <div *ngIf="submitted && error" class="error-message">
-    <p>{{textContent.error}}</p>
+    <p>{{formContent.error}}</p>
   </div>
 </section>

@@ -1,24 +1,24 @@
 <div class="cv-container">
   <section id="cv-header">
-    <h1>{{ textContent.header }}</h1>
+    <h1>{{ resumeContent.header }}</h1>
     <div class="cv-content">
       <div class="profile-pic">
-        <img src="assets/profile_photo.jpg" alt="{{ textContent.pictureAlt }}">
+        <img src="assets/profile_photo.jpg" alt="{{ resumeContent.pictureAlt }}">
       </div>
       <div class="about-me">
-        <h2>{{ textContent.aboutMe.title }}</h2>
-        <p>{{ textContent.aboutMe.text }}.</p>
+        <h2>{{ resumeContent.aboutMe.title }}</h2>
+        <p>{{ resumeContent.aboutMe.text }}.</p>
       </div>
     </div>
   </section>
   <section id="work-experience">
-    <h2 class="timeline-header">{{ textContent.workExperience.title }}</h2>
-    <p class="section-summary">{{ textContent.workExperience.text }}</p>
+    <h2 class="timeline-header">{{ resumeContent.workExperience.title }}</h2>
+    <p class="section-summary">{{ resumeContent.workExperience.text }}</p>
     <app-employment-history></app-employment-history>
   </section>
   <section id="education">
-    <h2 class="timeline-header">{{ textContent.education.title }}</h2>
-    <p class="section-summary">{{ textContent.education.text }}</p>
+    <h2 class="timeline-header">{{ resumeContent.education.title }}</h2>
+    <p class="section-summary">{{ resumeContent.education.text }}</p>
     <app-education-history></app-education-history>
   </section>
 
