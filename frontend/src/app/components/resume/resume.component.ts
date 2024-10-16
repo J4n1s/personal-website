@@ -28,7 +28,7 @@ export class ResumeComponent implements OnInit {
 
   ngOnInit() {
     this.loadSkills();
-    this.loadResumeContent()
+    this.loadResumeContent();
   }
 
   private loadSkills() {

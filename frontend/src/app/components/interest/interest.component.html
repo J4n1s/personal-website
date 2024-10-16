@@ -1,67 +1,18 @@
-<section class="interest-section" id="interest1">
-  <div class="content interest-img-left">
+<section *ngFor="let interest of interestsContent; let i = index" class="interest-section" id="interest{{i + 1}}"> <!-- TODO remove id -->
+  <div [ngClass]="i%2 === 0 ? 'content interest-img-left' : 'content interest-img-right'">
     <div class="image-container">
-      <input type="radio" name="slider-1" id="item-1-1" checked>
-      <input type="radio" name="slider-1" id="item-1-2">
-      <input type="radio" name="slider-1" id="item-1-3">
+      <input *ngFor="let j of [1, 2, 3]" type="radio" name="slider-{{i + 1}}" id="item-{{i + 1}}-{{j}}" [checked]="j === 1">
 
       <div class="cards">
-        <label class="card" id="img-1-1" for="item-1-1">
-          <img src="assets/IMG_1819.png" alt="Photography Interest">
-        </label>
-        <label class="card" id="img-1-2" for="item-1-2">
-          <img src="assets/plane.jpg" alt="Photography Interest">
-        </label>
-        <label class="card" id="img-1-3" for="item-1-3">
-          <img src="assets/hiking2.JPG" alt="Photography Interest">
+        <label *ngFor="let j of [1, 2, 3]" class="card" id="img-{{i + 1}}-{{j}}" for="item-{{i+1}}-{{j}}">
+          <img src="{{interest.images[j-1]}}" alt="Placeholder"> <!-- TODO alternative image text -->
         </label>
       </div>
 
     </div>
     <div class="interest-text">
-      <h2>Photography</h2>
-      <p>Photography allows me to capture the beauty of the world. I enjoy experimenting with light, color, and framing to tell stories through images.</p>
+      <h2>{{interest.title}}</h2>
+      <p>{{interest.text}}</p>
     </div>
   </div>
 </section>
-
-<section class="interest-section" id="interest2">
-  <div class="content interest-img-right">
-    <div class="image-container">
-      <input type="radio" name="slider-2" id="item-2-1" checked>
-      <input type="radio" name="slider-2" id="item-2-2">
-      <input type="radio" name="slider-2" id="item-2-3">
-
-      <div class="cards">
-        <label class="card" id="img-2-1" for="item-2-1">
-          <img src="assets/bears.jpg" alt="Photography Interest">
-        </label>
-        <label class="card" id="img-2-2" for="item-2-2">
-          <img src="assets/boat.jpg" alt="Photography Interest">
-        </label>
-        <label class="card" id="img-2-3" for="item-2-3">
-          <img src="assets/drone.jpg" alt="Photography Interest">
-        </label>
-      </div>
-
-    </div>
-    <div class="interest-text">
-      <h2>Traveling</h2>
-      <p>Exploring new places is a passion of mine. Whether it's the architecture of old cities or the tranquility of nature, each place brings inspiration.</p>
-    </div>
-  </div>
-</section>
-
-<section class="interest-section" id="interest3">
-  <div class="content interest-img-left">
-    <div class="image-container">
-      <img src="assets/triathlon.png" alt="Art and Design Interest">
-    </div>
-    <div class="interest-text">
-      <h2>Art & Design</h2>
-      <p>From digital design to traditional painting, I find immense joy in creating and experiencing art. It's a way to express creativity and emotion.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Add more interest sections as needed -->

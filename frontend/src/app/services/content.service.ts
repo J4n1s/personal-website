@@ -24,4 +24,8 @@ export class ContentService {
   getAllSkills(): Observable<Skill[]> {
     return this.httpClient.get<Skill[]>(this.contentBaseUri + '/skills');
   }
+
+  getInterestsContent(): Observable<any[]> {
+    return this.httpClient.get<any>(this.contentBaseUri + '/interests');
+  }
 }
