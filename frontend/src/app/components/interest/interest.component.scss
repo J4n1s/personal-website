@@ -79,79 +79,98 @@ img {
 }
 
 /* Handling state changes with transitions */
-
+$max-interests: 4;
 /* Image 2 checked */
 
-#item-2:checked ~ .cards #img-1 {
-  transform: translatex(50%) scale(.8);
-  opacity: .4;
-  z-index: 0;
-}
-
-#item-2:checked ~ .cards #img-2 {
-  transform: translatex(0) scale(1);
-  opacity: 1;
-  z-index: 1;
-
-  img {
-    box-shadow: 0 0 5px 0 rgba(81, 81, 81, 0.47);
+@for $i from 1 through $max-interests {
+  #item-#{$i}-2:checked ~ .cards #img-#{$i}-1 {
+    transform: translatex(50%) scale(.8);
+    opacity: .4;
+    z-index: 0;
   }
 }
 
-#item-2:checked ~ .cards #img-3 {
-  transform: translateX(-50%) scale(.8);
-  opacity: .4;
-  z-index: 0;
+@for $i from 1 through $max-interests {
+  #item-#{$i}-2:checked ~ .cards #img-#{$i}-2 {
+    transform: translatex(0) scale(1);
+    opacity: 1;
+    z-index: 1;
+
+    img {
+      box-shadow: 0 0 5px 0 rgba(81, 81, 81, 0.47);
+    }
+  }
+}
+
+@for $i from 1 through $max-interests {
+  #item-#{$i}-2:checked ~ .cards #img-#{$i}-3 {
+    transform: translateX(-50%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+  }
 }
 
 /* Image 1 checked */
 
-#item-1:checked ~ .cards #img-1 {
-  transform: translatex(100%) scale(1);
-  opacity: 1;
-  z-index: 1;
+@for $i from 1 through $max-interests {
+  #item-#{$i}-1:checked ~ .cards #img-#{$i}-1 {
+    transform: translatex(100%) scale(1);
+    opacity: 1;
+    z-index: 1;
 
-  img {
-    box-shadow: 0 0 5px 0 rgba(81, 81, 81, 0.47);
+    img {
+      box-shadow: 0 0 5px 0 rgba(81, 81, 81, 0.47);
+    }
   }
 }
 
-#item-1:checked ~ .cards #img-2 {
-  transform: translateX(50%) scale(.8);
-  opacity: .4;
-  z-index: 0;
+@for $i from 1 through $max-interests{
+  #item-#{$i}-1:checked ~ .cards #img-#{$i}-2 {
+    transform: translateX(50%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+  }
 }
 
-#item-1:checked ~ .cards #img-3 {
-  transform: translatex(-150%) scale(.8);
-  opacity: .4;
-  z-index: 0;
+@for $i from 1 through $max-interests{
+  #item-#{$i}-1:checked ~ .cards #img-#{$i}-3 {
+    transform: translatex(-150%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+  }
 }
 
 
 /* Image 3 checked */
 
-#item-3:checked ~ .cards #img-1 {
-  transform: translateX(150%) scale(.8);
-  opacity: .4;
-  z-index: 0;
-}
-
-#item-3:checked ~ .cards #img-2 {
-  transform: translatex(-50%) scale(.8);
-  opacity: .4;
-  z-index: 0;
-}
-
-#item-3:checked ~ .cards #img-3 {
-  transform: translatex(-100%) scale(1);
-  opacity: 1;
-  z-index: 1;
-
-  img {
-    box-shadow: 0 0 5px 0 rgba(81, 81, 81, 0.47);
+@for $i from 1 through $max-interests{
+  #item-#{$i}-3:checked ~ .cards #img-#{$i}-1 {
+    transform: translateX(150%) scale(.8);
+    opacity: .4;
+    z-index: 0;
   }
 }
+
+@for $i from 1 through $max-interests{
+  #item-#{$i}-3:checked ~ .cards #img-#{$i}-2 {
+    transform: translatex(-50%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+  }
+}
+
+@for $i from 1 through $max-interests{
+  #item-#{$i}-3:checked ~ .cards #img-#{$i}-3 {
+    transform: translatex(-100%) scale(1);
+    opacity: 1;
+    z-index: 1;
+
+    img {
+      box-shadow: 0 0 5px 0 rgba(81, 81, 81, 0.47);
+    }
+  }
+}
+
 
 /* Alternating Content Placement */
 .interest-img-left {
