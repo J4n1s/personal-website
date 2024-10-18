@@ -78,4 +78,16 @@ public class ContentController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @CrossOrigin
+    @GetMapping(value = "/footer")
+    ResponseEntity<JsonNode> getFooterContent() {
+        LOGGER.info("GET api/v1/content/footer");
+        try {
+            return ResponseEntity.ok(contentService.getFooterContent(languageService.getLanguage()));
+        } catch (NotFoundException e) {
+            LOGGER.error("Error getting footer content", e);
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
