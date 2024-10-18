@@ -3,7 +3,7 @@ import {EmploymentHistoryComponent} from "../employment-history/employment-histo
 import {EducationHistoryComponent} from "../education-history/education-history.component";
 import {Skill} from "../../dtos/skill";
 import {HttpErrorResponse} from "@angular/common/http";
-import {NgForOf, NgStyle} from "@angular/common";
+import {AsyncPipe, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ContentService} from "../../services/content.service";
 
 @Component({
@@ -13,7 +13,9 @@ import {ContentService} from "../../services/content.service";
     EmploymentHistoryComponent,
     EducationHistoryComponent,
     NgForOf,
-    NgStyle
+    NgStyle,
+    AsyncPipe,
+    NgIf
   ],
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.scss'
@@ -21,6 +23,7 @@ import {ContentService} from "../../services/content.service";
 export class ResumeComponent implements OnInit {
 
   skills: Skill[] | undefined;
+  contentLoaded: Promise<boolean> = Promise.resolve(false);
   resumeContent!: any;
 
   constructor(private contentService: ContentService) {
@@ -35,7 +38,9 @@ export class ResumeComponent implements OnInit {
     this.contentService.getAllSkills().subscribe({
       next: (skills: Skill[]) => {
         this.skills = skills;
-        console.log(this.skills);
+        if (this.resumeContent !== undefined) {
+          this.contentLoaded = Promise.resolve(true);
+        }
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
@@ -47,6 +52,9 @@ export class ResumeComponent implements OnInit {
     this.contentService.getResumeContent().subscribe({
       next: (resumeContent: any) => {
         this.resumeContent = resumeContent;
+        if (this.skills !== undefined) {
+          this.contentLoaded = Promise.resolve(true);
+        }
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);

@@ -1,25 +1,28 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EducationItemService} from '../../services/education-item.service'
 import {EducationItem} from "../../dtos/education-item";
 import {HttpErrorResponse} from "@angular/common/http";
-import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {Globals} from "../../globals";
 
 
 @Component({
   selector: 'app-education-history',
   standalone: true,
-  imports: [
-    NgClass,
-    NgForOf,
-    NgOptimizedImage
-  ],
+    imports: [
+        NgClass,
+        NgForOf,
+        NgOptimizedImage,
+        AsyncPipe,
+        NgIf
+    ],
   templateUrl: './education-history.component.html',
   styleUrls: ['./education-history.component.scss', '../../styles/timeline.scss']
 })
-export class EducationHistoryComponent {
+export class EducationHistoryComponent implements OnInit {
 
-  educationItems: EducationItem[] | undefined;
+  contentLoaded: Promise<boolean> = Promise.resolve(false);
+  educationItems!: EducationItem[];
 
   constructor(private educationItemService: EducationItemService) {
   }
@@ -32,7 +35,7 @@ export class EducationHistoryComponent {
     this.educationItemService.getAllEducationItems().subscribe({
       next: (educationItems: EducationItem[]) => {
         this.educationItems = educationItems;
-        console.log(this.educationItems);
+        this.contentLoaded = Promise.resolve(true);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);

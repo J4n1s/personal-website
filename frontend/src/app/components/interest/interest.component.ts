@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
 import {Globals} from "../../globals";
 
 @Component({
@@ -11,7 +11,6 @@ import {Globals} from "../../globals";
     NgForOf,
     NgClass,
     NgOptimizedImage,
-    NgIf
   ],
   templateUrl: './interest.component.html',
   styleUrl: './interest.component.scss'

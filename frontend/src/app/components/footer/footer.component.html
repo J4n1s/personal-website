@@ -1,11 +1,11 @@
 <footer>
-  <div class="footer-container">
+  <div *ngIf="contentLoaded | async" class="footer-container">
     <!-- Contact Information -->
     <div class="contact-info">
-      <h3>Janis Schneeberger</h3>
+      <h3>{{ footerContent.name }}</h3>
       <p>Email: <a href="mailto:janis.schneeberger@outlook.com">{{mail}}</a></p>
       <p>Phone: <a href="tel:+4367761637144">+43 677 61637144</a></p>
-      <a href="/contact">Contact Me</a>
+      <a href="/contact">{{ footerContent.contact }}</a>
     </div>
 
     <!-- Social Media Links -->

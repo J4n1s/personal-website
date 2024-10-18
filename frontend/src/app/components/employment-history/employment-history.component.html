@@ -1,4 +1,4 @@
-<div class="timeline">
+<div *ngIf="contentLoaded | async" class="timeline">
   <div *ngFor="let jobItem of jobItems; let i = index" [ngClass]="i % 2 === 0 ? 'container left' : 'container right'">
     <div class="content">
       <div class="container-header">

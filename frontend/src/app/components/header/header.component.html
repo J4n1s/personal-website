@@ -1,16 +1,16 @@
-<nav class="navbar navbar-light navbar-expand-lg">
+<nav *ngIf="contentLoaded | async" class="navbar navbar-light navbar-expand-lg">
   <ul>
     <li>
-      <a routerLink="/">HOME</a>
+      <a routerLink="/">{{ headerContent.home }}</a>
     </li>
     <li>
-      <a routerLink="/resume">RESUME</a>
+      <a routerLink="/resume">{{ headerContent.resume }}</a>
     </li>
     <li>
-      <a routerLink="/interest">INTERESTS</a>
+      <a routerLink="/interest">{{ headerContent.interests }}</a>
     </li>
     <li>
-      <a routerLink="/contact">CONTACT</a>
+      <a routerLink="/contact">{{ headerContent.contact }}</a>
     </li>
   </ul>
 

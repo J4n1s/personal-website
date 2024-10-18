@@ -1,4 +1,4 @@
-<section *ngIf="formContent" id="contact-form-section">
+<section *ngIf="contentLoaded | async" id="contact-form-section">
   <form class="container" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <h1>{{formContent.header}}</h1>
 

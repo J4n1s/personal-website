@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Validators, ReactiveFormsModule, FormBuilder, FormGroup, FormControl} from "@angular/forms";
 import {ContactInformation} from "../../dtos/contact-information";
 import {ContactService} from "../../services/contact-service";
-import {NgIf} from "@angular/common";
+import {AsyncPipe, NgIf} from "@angular/common";
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
@@ -11,7 +11,8 @@ import {HttpErrorResponse} from "@angular/common/http";
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    AsyncPipe
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
@@ -22,6 +23,7 @@ export class ContactComponent implements OnInit {
   error = false;
   contactInformation?: ContactInformation;
   contactForm!: FormGroup;
+  contentLoaded: Promise<boolean> = Promise.resolve(false);
   formContent!: any;
 
   constructor(private contactService: ContactService,
@@ -60,7 +62,7 @@ export class ContactComponent implements OnInit {
     this.contentService.getContactFormContent().subscribe({
       next: (formContent: any) => {
         this.formContent = formContent;
-        console.log(this.formContent);
+        this.contentLoaded = Promise.resolve(true);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);

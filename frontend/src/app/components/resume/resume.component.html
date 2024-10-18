@@ -1,4 +1,4 @@
-<div class="cv-container">
+<div *ngIf="contentLoaded | async" class="cv-container">
   <section id="cv-header">
     <h1>{{ resumeContent.header }}</h1>
     <div class="cv-content">

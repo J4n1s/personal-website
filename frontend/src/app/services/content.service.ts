@@ -28,4 +28,12 @@ export class ContentService {
   getInterestsContent(): Observable<any[]> {
     return this.httpClient.get<any>(this.contentBaseUri + '/interests');
   }
+
+  getHeaderContent(): Observable<any> {
+    return this.httpClient.get<any>(this.contentBaseUri + '/header');
+  }
+
+  getFooterContent(): Observable<any> {
+    return this.httpClient.get<any>(this.contentBaseUri + '/footer');
+  }
 }
