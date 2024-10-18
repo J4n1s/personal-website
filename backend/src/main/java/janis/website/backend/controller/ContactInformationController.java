@@ -8,11 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.invoke.MethodHandles;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/contact")
@@ -26,15 +24,6 @@ public class ContactInformationController {
     ContactInformationController(ContactInformationService contactInformationService, ContactInformationMapper contactInformationMapper) {
         this.contactInformationService = contactInformationService;
         this.contactInformationMapper = contactInformationMapper;
-    }
-
-    @CrossOrigin
-    @GetMapping
-    ResponseEntity<List<ContactInformationDto>> all() {
-        LOGGER.info("GET api/v1/contact");
-        return ResponseEntity.ok(
-                contactInformationMapper.entityToDto(contactInformationService.getAll())
-        );
     }
 
     @CrossOrigin

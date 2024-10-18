@@ -28,11 +28,6 @@ public class ContactInformationServiceImpl implements ContactInformationService 
     }
 
     @Override
-    public List<ContactInformation> getAll() {
-        return contactInformationRepository.findAll();
-    }
-
-    @Override
     public ContactInformation create(ContactInformation contactInformation) {
         validateContactInformation(contactInformation);
         emailService.sendEmail(getConfirmationEmail(contactInformation));
