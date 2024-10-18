@@ -9,7 +9,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Each section takes up the full viewport */
+  min-height: 100vh; /* Each section takes up the full viewport */
   padding: 20px;
   box-sizing: border-box;
   position: relative;

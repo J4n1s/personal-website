@@ -1,0 +1,24 @@
+/* Navigation */
+nav ul {
+  list-style-type: none;
+  background-color: var(--secondary-bg); /* Dark Grey Background for Nav */
+  text-align: center;
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  // background-color: var(--secondary-cl); /* Soft Blue Hover Effect */
+}
