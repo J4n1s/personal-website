@@ -1,0 +1,9 @@
+{
+  "header": "404: Page Not Found",
+  "text": {
+    "part1": "Oops! The page you're looking for doesn't exist or has been moved.",
+    "part2": "If you think this is an error, please feel free to contact me directly or by using the ",
+    "part3": "form",
+    "part4": " and I'll be happy to assist you."
+  }
+}

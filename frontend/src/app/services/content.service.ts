@@ -36,4 +36,8 @@ export class ContentService {
   getFooterContent(): Observable<any> {
     return this.httpClient.get<any>(this.contentBaseUri + '/footer');
   }
+
+  get404Content(): Observable<any> {
+    return this.httpClient.get<any>(this.contentBaseUri + '/404');
+  }
 }

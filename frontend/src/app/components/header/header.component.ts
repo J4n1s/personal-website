@@ -17,7 +17,6 @@ import {AsyncPipe, NgIf} from "@angular/common";
 })
 export class HeaderComponent implements OnInit {
 
-  public isMenuCollapsed = true;
   contentLoaded: Promise<boolean> = Promise.resolve(false);
   headerContent!: any;
 

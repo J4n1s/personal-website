@@ -102,4 +102,16 @@ public class ContentController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @CrossOrigin
+    @GetMapping(value = "404")
+    ResponseEntity<JsonNode> get404Content() {
+        LOGGER.info("GET api/v1/content/404");
+        try {
+            return ResponseEntity.ok(contentService.get404Content(languageService.getLanguage()));
+        } catch (NotFoundException e) {
+            LOGGER.error("Error getting 404 content", e);
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

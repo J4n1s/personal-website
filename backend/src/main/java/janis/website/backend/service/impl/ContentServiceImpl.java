@@ -57,6 +57,12 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
+    public JsonNode get404Content(String language) {
+        String fileBasename = "error_404";
+        return getJsonContent(fileBasename, language);
+    }
+
+    @Override
     public List<SkillDto> getSkills(String language) {
         String filename = DATA_PATH + "skills_" + language + ".json";
         try {

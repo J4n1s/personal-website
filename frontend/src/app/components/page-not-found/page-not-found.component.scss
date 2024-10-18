@@ -1,0 +1,21 @@
+.error-container {
+  text-align: center;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+.error-header {
+  font-size: 3rem;
+  color: var(--error-cl); /* Bright Red for the Error */
+  margin-bottom: 20px;
+}
+
+.error-text {
+  font-size: 1.25rem;
+  color: var(--primary-cl);
+  margin-bottom: 30px;
+}
+
+.contact-link {
+  font-size: 1.25rem;
+}
