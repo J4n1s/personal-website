@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
 import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHandlerFn} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Globals} from "../globals";
 
 @Injectable({
   providedIn: 'root', // Ensures this interceptor is available throughout your app
 })
 export class LanguageInterceptor implements HttpInterceptor {
 
-  constructor() {
+  constructor(private globals: Globals) {
   }
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    // Get the user's preferred language from the browser
-    const userLanguage = navigator.language || 'en-US';
-
     // Clone the request and add the Accept-Language header
     const modifiedReq = req.clone({
       setHeaders: {
-        'Accept-Language': userLanguage
+        'Accept-Language': this.globals.userLanguage
       }
     });
 

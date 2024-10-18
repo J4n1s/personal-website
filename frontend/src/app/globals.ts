@@ -6,7 +6,9 @@ import {Injectable} from '@angular/core';
 export class Globals {
 
   readonly baseUri: string = this.findBackendUrl();
-  readonly apiUri: string = this.baseUri + 'api/v1'
+  readonly apiUri: string = this.baseUri + 'api/v1';
+
+  readonly userLanguage: string = this.findLanguage();
 
   private findBackendUrl(): string {
     return 'http://localhost:8080/';
@@ -18,6 +20,10 @@ export class Globals {
       return window.location.protocol + '//' + window.location.host + window.location.pathname + 'api';
     }
      */
+  }
+
+  private findLanguage(): string {
+    return navigator.language || 'de';
   }
 
 
