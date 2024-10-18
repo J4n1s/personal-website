@@ -1,4 +1,4 @@
-<section *ngFor="let interest of interestsContent; let i = index" class="interest-section">
+<section *ngFor="let interest of interestsContent; let i = index; let isLast=last" class="interest-section" [style]="!isLast ? 'border-bottom: 1px solid var(--primary-cl);' : ''">
   <div [ngClass]="i%2 === 0 ? 'content interest-img-left' : 'content interest-img-right'">
     <div class="image-container">
       <input *ngFor="let j of [1, 2, 3]" type="radio" name="slider-{{i + 1}}" id="item-{{i + 1}}-{{j}}" [checked]="j === 1">
