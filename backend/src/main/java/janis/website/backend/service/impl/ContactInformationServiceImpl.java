@@ -6,10 +6,10 @@ import janis.website.backend.exception.ValidationException;
 import janis.website.backend.repository.ContactInformationRepository;
 import janis.website.backend.service.ContactInformationService;
 import janis.website.backend.service.EmailService;
+import janis.website.backend.service.LanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,11 +20,13 @@ public class ContactInformationServiceImpl implements ContactInformationService 
 
     private final ContactInformationRepository contactInformationRepository;
     private final EmailService emailService;
+    private final LanguageService languageService;
 
     @Autowired
-    ContactInformationServiceImpl(ContactInformationRepository contactInformationRepository, EmailService emailService) {
+    ContactInformationServiceImpl(ContactInformationRepository contactInformationRepository, EmailService emailService, LanguageService languageService) {
         this.contactInformationRepository = contactInformationRepository;
         this.emailService = emailService;
+        this.languageService = languageService;
     }
 
     @Override
@@ -55,12 +57,21 @@ public class ContactInformationServiceImpl implements ContactInformationService 
     }
 
     private EmailDto getConfirmationEmail(ContactInformation contactInformation) {
-        return new EmailDto(contactInformation.getMail(), "Thanks for getting in touch!", """
+        if (languageService.getLanguage().equals("en")) {
+            return new EmailDto(contactInformation.getMail(), "Thanks for getting in touch!", """
                 Thank you for getting in touch!
-                I will contact you as soon as I can
+                I will contact you as soon as I can.
                 
                 Best regards,
                 Janis Schneeberger""");
+        } else {
+            return new EmailDto(contactInformation.getMail(), "Danke für die Kontaktaufnahme!", """
+                Danke für die Kontaktaufnahme!
+                Ich setze mich sobald ich kann mit Ihnen in Verbindung.
+                
+                Beste Grüße,
+                Janis Schneeberger""");
+        }
     }
 
     private EmailDto getNotificationEmail(ContactInformation contactInformation) {
