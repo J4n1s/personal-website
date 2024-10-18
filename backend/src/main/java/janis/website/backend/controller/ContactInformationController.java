@@ -31,9 +31,7 @@ public class ContactInformationController {
     @ResponseStatus(HttpStatus.CREATED)
     ContactInformationDto create(@RequestBody ContactInformationDto contactInformationDto) {
         LOGGER.info("POST api/v1/contact");
-        System.out.println(contactInformationDto);
         ContactInformation contactInformation = contactInformationMapper.dtoToEntity(contactInformationDto);
-        System.out.println(contactInformation);
         return contactInformationMapper.entityToDto(contactInformationService.create(contactInformation));
     }
 }
