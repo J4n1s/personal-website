@@ -1,11 +1,11 @@
-<section *ngFor="let interest of interestsContent; let i = index" class="interest-section" id="interest{{i + 1}}"> <!-- TODO remove id -->
+<section *ngFor="let interest of interestsContent; let i = index" class="interest-section">
   <div [ngClass]="i%2 === 0 ? 'content interest-img-left' : 'content interest-img-right'">
     <div class="image-container">
       <input *ngFor="let j of [1, 2, 3]" type="radio" name="slider-{{i + 1}}" id="item-{{i + 1}}-{{j}}" [checked]="j === 1">
 
       <div class="cards">
         <label *ngFor="let j of [1, 2, 3]" class="card" id="img-{{i + 1}}-{{j}}" for="item-{{i+1}}-{{j}}">
-          <img src="{{interest.images[j-1]}}" alt="Placeholder"> <!-- TODO alternative image text -->
+          <img ngSrc="{{baseUri + '/' + interest.images[j-1]}}" alt="Placeholder" height="900" width="600" [priority]="i === 0"> <!-- Priority for first three images -->
         </label>
       </div>
 
