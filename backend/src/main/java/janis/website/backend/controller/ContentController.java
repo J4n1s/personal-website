@@ -90,4 +90,16 @@ public class ContentController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @CrossOrigin
+    @GetMapping(value = "/header")
+    ResponseEntity<JsonNode> getHeaderContent() {
+        LOGGER.info("GET api/v1/content/header");
+        try {
+            return ResponseEntity.ok(contentService.getHeaderContent(languageService.getLanguage()));
+        } catch (NotFoundException e) {
+            LOGGER.error("Error getting header content", e);
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

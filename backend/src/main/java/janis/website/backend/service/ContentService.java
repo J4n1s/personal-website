@@ -15,5 +15,7 @@ public interface ContentService {
 
     JsonNode getFooterContent(String language);
 
+    JsonNode getHeaderContent(String language);
+
     List<SkillDto> getSkills(String language);
 }
