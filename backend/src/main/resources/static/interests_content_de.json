@@ -1,38 +1,38 @@
 [
   {
     "title": "Sport",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "text": "Mein größtes Hobby und Interesse ist definitiv Sport. Als Kind habe ich mit Fußball angefangen, dann bin ich zur Leichtathletik gewechselt und habe kurzzeitig American Football gespielt. Jetzt mache ich wieder Leichtathletik und kann mir kein Hobby vorstellen, das mir mehr Spaß machen würde.",
     "images": [
-      "url/to/image1",
-      "url/to/image2",
-      "url/to/image3"
-    ]
-  },
-  {
-    "title": "Freunde",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "images": [
-      "url/to/image1",
-      "url/to/image2",
-      "url/to/image3"
+      "images/sports-indoor_600x900.jpg",
+      "images/sports-triathlon_600x900.jpg",
+      "images/sports-hurdle_600x900.jpg"
     ]
   },
   {
     "title": "Natur",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "text": "Wenn ich keinen Sport mache bin ich gerne draußen, um die Natur zu genießen oder dort Sport zu machen. Ich gehe gerne wandern, stehe früh auf um einen Sonnenaufgang anzuschauen oder einfach um die kalte erfrischende Morgenluft zu genießen.",
     "images": [
-      "url/to/image1",
-      "url/to/image2",
-      "url/to/image3"
+      "images/nature-hiking_600x900.jpg",
+      "images/nature-group_600x900.jpg",
+      "images/nature-sunset_600x900.jpg"
+    ]
+  },
+  {
+    "title": "Abenteuer und Reisen",
+    "text": "Ich bin immer offen für Abenteuer jeglicher Art und habe viel Freude daran die Welt auf unkonventionelle Art und Weise zu erkunden. Zum Beispiel wie in dieser Bilderserie, die entstanden ist als meine Freunde und ich ohne Geld, Handy oder zu wissen wo wir beginnen eine Woche durch Europa gereist sind.",
+    "images": [
+      "images/adventure-blind_600x900.jpg",
+      "images/adventure-berlin_600x900.jpg",
+      "images/adventure-racing_600x900.jpg"
     ]
   },
   {
     "title": "Photographie",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "text": "Um sämtliche Facetten der Welt einzufangen und für meine Erinnerung versuche ich, wann immer möglich, Fotos und Videos zu machen. Ob mit digitaler oder analoger Kamera oder mit der Drohne – ich versuche, die besten Momente festzuhalten und habe viel Spaß dabei. Vor Allem, wenn es mir gelingt.",
     "images": [
-      "url/to/image1",
-      "url/to/image2",
-      "url/to/image3"
+      "images/photography-selfie_600x900.jpg",
+      "images/photography-bears_600x900.jpg",
+      "images/photography-castle_600x900.jpg"
     ]
   }
 ]

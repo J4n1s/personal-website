@@ -1,38 +1,38 @@
 [
   {
   "title": "Sport",
-  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "text": "My biggest hobby and interest is most definitely sports. As a kid, I started by playing football, then I switched to track and field and briefly played American football. Now, I’m back to doing track and field, and I can’t think of a hobby I would enjoy more.",
   "images": [
-    "assets/bears.jpg",
-    "assets/boat.jpg",
-    "assets/drone.jpg"
+    "images/sports-indoor_600x900.jpg",
+    "images/sports-triathlon_600x900.jpg",
+    "images/sports-hurdle_600x900.jpg"
   ]
   },
   {
-    "title": "Friends",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "title": "Nature",
+    "text": "Aside from sports, I love being outside to simply enjoy nature. I like going hiking and getting up early to watch a beautiful sunrise or to experience a quiet, slow morning with a fresh breeze on my face.",
     "images": [
-      "assets/bears.jpg",
-      "assets/boat.jpg",
-      "assets/drone.jpg"
+      "images/nature-hiking_600x900.jpg",
+      "images/nature-group_600x900.jpg",
+      "images/nature-sunset_600x900.jpg"
     ]
   },
   {
-    "title": "Nature",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "title": "Adventure and Travelling",
+    "text": "I'm always open to adventure and love the thrill of exploring the world in unconventional ways. Just like in this image series, when my friends and I went on a one-week trip to cross Europe without money, our phones, or knowing our starting point.",
     "images": [
-      "assets/bears.jpg",
-      "assets/boat.jpg",
-      "assets/drone.jpg"
+      "images/adventure-blind_600x900.jpg",
+      "images/adventure-berlin_600x900.jpg",
+      "images/adventure-racing_600x900.jpg"
     ]
   },
   {
     "title": "Photography",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "text": "To capture the beauty of the world and remember everything I’ve done, I try to take pictures and videos whenever possible. Whether it’s with my digital or analog camera, or while flying my drone, I aim to capture the best moments and have a lot of fun doing it.",
     "images": [
-      "assets/bears.jpg",
-      "assets/boat.jpg",
-      "assets/drone.jpg"
+      "images/photography-selfie_600x900.jpg",
+      "images/photography-bears_600x900.jpg",
+      "images/photography-castle_600x900.jpg"
     ]
   }
 ]
