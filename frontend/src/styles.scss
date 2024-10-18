@@ -23,7 +23,7 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: var(--primary-bg); /* Light Grey Background */
-  color: var(--main-cl); /* Dark Grey Text */
+  color: var(--primary-cl); /* Dark Grey Text */
   line-height: 1.6;
 }
 
@@ -58,4 +58,5 @@ a:hover {
 
 .btn-primary:hover {
   background-color: var(--tertiary-cl); /* Muted Orange Hover Effect */
+  color: white;
 }

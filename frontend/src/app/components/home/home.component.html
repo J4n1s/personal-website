@@ -1,9 +1,14 @@
-<section>
-  <h1>Janis Schneeberger</h1>
-
-  <p>Mein Name ist Janis Schneeberger. Ich studiere Medizin an der Medizinischen Universität Wien und schließe parallel meinen
-    Bachelor in Software Engineering an der Technischen Universität Wien ab. Ich würde mich selbst als engagierten Studenten bezeichnen,
-    da ich mich immer freue etwas neues zu lernen. Besonders bin ich an Wissenschaft und Forschung interessiert und hoffe später
-    einmal selbst in diesem Berufsfeld arbeiten zu dürfen</p>
-
+<section *ngIf="homeContent" class="hero-section">
+  <div class="hero-text">
+    <h1>{{ homeContent.title }}</h1>
+    <h2>{{ homeContent.name }}</h2>
+    <p>{{ homeContent.location }}</p>
+    <div class="button-group">
+      <a href="/resume" class="btn-primary">{{ homeContent.resume }}</a>
+      <a href="/contact" class="btn-secondary">{{ homeContent.contact }}</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img class="profile-picture" src="assets/profile_photo.jpg" alt="{{ homeContent.imgAlt }}">
+  </div>
 </section>

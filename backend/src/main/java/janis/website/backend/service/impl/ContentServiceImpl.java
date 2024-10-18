@@ -63,6 +63,12 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
+    public JsonNode getHomeContent(String language) {
+        String fileBasename = "home_content";
+        return getJsonContent(fileBasename, language);
+    }
+
+    @Override
     public List<SkillDto> getSkills(String language) {
         String filename = DATA_PATH + "skills_" + language + ".json";
         try {

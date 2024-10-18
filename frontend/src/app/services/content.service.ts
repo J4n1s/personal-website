@@ -40,4 +40,8 @@ export class ContentService {
   get404Content(): Observable<any> {
     return this.httpClient.get<any>(this.contentBaseUri + '/404');
   }
+
+  getHomeContent(): Observable<any> {
+    return this.httpClient.get<any>(this.contentBaseUri + '/home');
+  }
 }
