@@ -16,7 +16,7 @@ public class JobItemTranslation {
     private long id;
 
     @Column(nullable = false)
-    private String language;  // ISO codes (e.g. "en", "de")
+    private String language;
 
     @Column(nullable = false)
     private String employerName;

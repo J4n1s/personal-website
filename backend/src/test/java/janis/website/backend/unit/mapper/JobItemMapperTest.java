@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +24,7 @@ public class JobItemMapperTest {
     @BeforeEach
     public void setUp() {
         jobItem = new JobItem(1986, 1999, "url/to/logo");
-        JobItemTranslation translation = new JobItemTranslation("en", "APG", "System Administrator", "Job Description");
+        JobItemTranslation translation = new JobItemTranslation(Locale.ENGLISH.getLanguage(), "APG", "System Administrator", "Job Description");
         translation.setJobItem(jobItem);
         jobItem.setTranslations(List.of(translation));
     }

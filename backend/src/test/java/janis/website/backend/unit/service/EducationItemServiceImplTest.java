@@ -3,6 +3,7 @@ package janis.website.backend.unit.service;
 import janis.website.backend.entity.EducationItem;
 import janis.website.backend.repository.EducationItemRepository;
 import janis.website.backend.service.EducationItemService;
+import janis.website.backend.service.LanguageService;
 import janis.website.backend.service.impl.EducationItemServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -10,12 +11,15 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @DataJpaTest
 public class EducationItemServiceImplTest {
+
+    private final String english = Locale.ENGLISH.getLanguage();
 
     private final EducationItemRepository educationItemRepository = Mockito.mock(EducationItemRepository.class);
 
@@ -27,10 +31,10 @@ public class EducationItemServiceImplTest {
         educationItems.add(new EducationItem(2021, 2023, "url"));
         educationItems.add(new EducationItem(2024, null, "url"));
 
-        when(educationItemRepository.findAllByLanguageOrderByStartingYear("en")).thenReturn(educationItems);
-        List<EducationItem> result = educationItemService.getAllByLanguage("en");
+        when(educationItemRepository.findAllByLanguageOrderByStartingYear(english)).thenReturn(educationItems);
+        List<EducationItem> result = educationItemService.getAllByLanguage(english);
 
-        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear("en");
+        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear(english);
         assertEquals(educationItems, result);
     }
 
@@ -41,12 +45,12 @@ public class EducationItemServiceImplTest {
         educationItemsDe.add(new EducationItem(2021, 2023, "url"));
         educationItemsDe.add(new EducationItem(2024, null, "url"));
 
-        when(educationItemRepository.findAllByLanguageOrderByStartingYear("en")).thenReturn(educationItemsEn);
-        when(educationItemRepository.findAllByLanguageOrderByStartingYear("de")).thenReturn(educationItemsDe);
-        List<EducationItem> result = educationItemService.getAllByLanguage("en");
+        when(educationItemRepository.findAllByLanguageOrderByStartingYear(english)).thenReturn(educationItemsEn);
+        when(educationItemRepository.findAllByLanguageOrderByStartingYear(LanguageService.DEFAULT_LANGUAGE)).thenReturn(educationItemsDe);
+        List<EducationItem> result = educationItemService.getAllByLanguage(english);
 
-        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear("en");
-        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear("de");
+        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear(english);
+        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear(LanguageService.DEFAULT_LANGUAGE);
         assertEquals(educationItemsDe, result);
     }
 
@@ -56,12 +60,12 @@ public class EducationItemServiceImplTest {
         educationItemsDe.add(new EducationItem(2021, 2023, "url"));
         educationItemsDe.add(new EducationItem(2024, null, "url"));
 
-        when(educationItemRepository.findAllByLanguageOrderByStartingYear("en")).thenReturn(null);
-        when(educationItemRepository.findAllByLanguageOrderByStartingYear("de")).thenReturn(educationItemsDe);
-        List<EducationItem> result = educationItemService.getAllByLanguage("en");
+        when(educationItemRepository.findAllByLanguageOrderByStartingYear(english)).thenReturn(null);
+        when(educationItemRepository.findAllByLanguageOrderByStartingYear(LanguageService.DEFAULT_LANGUAGE)).thenReturn(educationItemsDe);
+        List<EducationItem> result = educationItemService.getAllByLanguage(english);
 
-        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear("en");
-        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear("de");
+        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear(english);
+        verify(educationItemRepository, times(1)).findAllByLanguageOrderByStartingYear(LanguageService.DEFAULT_LANGUAGE);
         assertEquals(educationItemsDe, result);
     }
 }

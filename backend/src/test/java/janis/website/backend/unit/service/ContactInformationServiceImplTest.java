@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.Locale;
+
 import static org.mockito.Mockito.*;
 
 @DataJpaTest
@@ -38,7 +40,7 @@ public class ContactInformationServiceImplTest {
         contact.setPhone("1234567890");
         contact.setMessage("Example message");
 
-        when(languageService.getLanguage()).thenReturn("en");
+        when(languageService.getLanguage()).thenReturn(Locale.ENGLISH.getLanguage());
     }
 
     @Test
@@ -47,7 +49,8 @@ public class ContactInformationServiceImplTest {
         EmailDto notificationEmail = new EmailDto("to@example.com", "Notification Subject", "Notification body");
 
         when(mailBuilderService.buildContactInformationNotification(contact)).thenReturn(notificationEmail);
-        when(mailBuilderService.buildContactInformationReceivedConfirmation(contact, "en")).thenReturn(confirmationEmail);
+        when(mailBuilderService.buildContactInformationReceivedConfirmation(contact, Locale.ENGLISH.getLanguage()))
+                .thenReturn(confirmationEmail);
 
         contactInformationService.create(contact);
         verify(validator, times(1)).validate(contact);

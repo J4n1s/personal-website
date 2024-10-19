@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -56,13 +57,7 @@ public class EducationItemRepositoryTest {
 
     @Test
     void testSave_withTranslation() {
-        EducationItemTranslation educationItemTranslation = new EducationItemTranslation();
-        educationItemTranslation.setLanguage("de");
-        educationItemTranslation.setSchoolName("Ballsportgymnasium Wien");
-        educationItemTranslation.setSchoolNameAbbreviation("BSG Wien");
-        educationItemTranslation.setStudyTitle("Matura");
-        educationItemTranslation.setDescription("Schule für Leistungssportler");
-        educationItemTranslation.setEducationItem(educationItem);
+        EducationItemTranslation educationItemTranslation = getEducationItemTranslation();
 
         educationItem.setTranslations(List.of(educationItemTranslation));
         educationItemRepository.save(educationItem);
@@ -75,9 +70,20 @@ public class EducationItemRepositoryTest {
         );
     }
 
+    private EducationItemTranslation getEducationItemTranslation() {
+        EducationItemTranslation educationItemTranslation = new EducationItemTranslation();
+        educationItemTranslation.setLanguage(Locale.GERMAN.getLanguage());
+        educationItemTranslation.setSchoolName("Ballsportgymnasium Wien");
+        educationItemTranslation.setSchoolNameAbbreviation("BSG Wien");
+        educationItemTranslation.setStudyTitle("Matura");
+        educationItemTranslation.setDescription("Schule für Leistungssportler");
+        educationItemTranslation.setEducationItem(educationItem);
+        return educationItemTranslation;
+    }
+
     @Test
     void testFindOrderedByLanguage() {
-        String language = "de";
+        String language = Locale.GERMAN.getLanguage();
         EducationItem educationItem1 = new EducationItem(1980, 1985, "1");
         EducationItem educationItem2 = new EducationItem(1987, null, "3");
         EducationItem educationItem3 = new EducationItem(1982, 1984, "2");

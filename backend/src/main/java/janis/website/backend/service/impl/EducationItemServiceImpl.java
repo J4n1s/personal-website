@@ -3,6 +3,7 @@ package janis.website.backend.service.impl;
 import janis.website.backend.entity.EducationItem;
 import janis.website.backend.repository.EducationItemRepository;
 import janis.website.backend.service.EducationItemService;
+import janis.website.backend.service.LanguageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class EducationItemServiceImpl implements EducationItemService {
 
         List<EducationItem> educationItems = educationItemRepository.findAllByLanguageOrderByStartingYear(language);
         if (educationItems == null || educationItems.isEmpty()) {
-            educationItems = educationItemRepository.findAllByLanguageOrderByStartingYear("de");
+            educationItems = educationItemRepository.findAllByLanguageOrderByStartingYear(LanguageService.DEFAULT_LANGUAGE);
         }
         return educationItems;
     }

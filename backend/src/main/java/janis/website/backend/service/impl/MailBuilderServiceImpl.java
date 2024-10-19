@@ -5,12 +5,14 @@ import janis.website.backend.entity.ContactInformation;
 import janis.website.backend.service.MailBuilderService;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
+
 @Service
 public class MailBuilderServiceImpl implements MailBuilderService {
 
     @Override
     public EmailDto buildContactInformationReceivedConfirmation(ContactInformation contactInformation, String language) {
-        if (language.equals("en")) {
+        if (language.equals(Locale.ENGLISH.getLanguage())) {
             return new EmailDto(contactInformation.getMail(), "Thanks for getting in touch!", """
                 Thank you for getting in touch!
                 I will contact you as soon as I can.

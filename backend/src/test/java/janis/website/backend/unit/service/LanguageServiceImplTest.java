@@ -17,15 +17,15 @@ public class LanguageServiceImplTest {
     @Test
     void testGetLanguage() {
         LocaleContextHolder.setLocale(Locale.GERMANY);
-        assertEquals("de", languageService.getLanguage());
+        assertEquals(Locale.GERMANY.getLanguage(), languageService.getLanguage());
 
         LocaleContextHolder.setLocale(Locale.ENGLISH);
-        assertEquals("en", languageService.getLanguage());
+        assertEquals(Locale.ENGLISH.getLanguage(), languageService.getLanguage());
     }
 
     @Test
     void testGetLanguage_withUnsupportedLanguage_shouldReturnDefault() {
         LocaleContextHolder.setLocale(Locale.FRANCE);
-        assertEquals("de", languageService.getLanguage());
+        assertEquals(LanguageService.DEFAULT_LANGUAGE, languageService.getLanguage());
     }
 }

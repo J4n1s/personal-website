@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Configuration("JobItemGenerator")
 public class JobItemGenerator {
@@ -51,12 +52,12 @@ public class JobItemGenerator {
     }
 
     private static List<JobItemTranslation> getAPGTranslations(JobItem jobItem) {
-        JobItemTranslation apgGerman = new JobItemTranslation("de", "APG", "System Administrator",
+        JobItemTranslation apgGerman = new JobItemTranslation(Locale.GERMAN.getLanguage(), "APG", "System Administrator",
                 "Bei der APG bin ich mit der Überwachung und Instandhaltung des zentralen Netzführungssystems " +
                         "betraut. Dabei handelt es sich um ein verteiltes Echtzeitsystem zur Steuerung des österreichischen " +
                         "Stromnetzes. Meine Hauptaufgabe ist es die Datenkonsistenz sicherzustellen. Dafür entwickle ich " +
                         "Verfahren um die Dateneingabe, -korrektur und -analyse zu automatisieren. ");
-        JobItemTranslation apgEnglish = new JobItemTranslation("en", "APG", "System Administrator",
+        JobItemTranslation apgEnglish = new JobItemTranslation(Locale.ENGLISH.getLanguage(), "APG", "System Administrator",
                 "At APG I am actively working to maintain and manage a highly distributed, real time system " +
                         "that is used to supervise and operate Austrias transmission power grid. I am tasked with keeping " +
                         "data consistency and develop automated approaches to enter, analyze and correct data. Other tasks " +
@@ -71,12 +72,12 @@ public class JobItemGenerator {
     }
 
     private static List<JobItemTranslation> getMedbitsTranslations(JobItem jobItem) {
-        JobItemTranslation medbitsGerman = new JobItemTranslation("de", "medbits", "Software Entwickler",
+        JobItemTranslation medbitsGerman = new JobItemTranslation(Locale.GERMAN.getLanguage(), "medbits", "Software Entwickler",
                 "Im Kontext eines Projekts habe ich eine Softwaremodul entwickelt, das die direkte Abrechnung " +
                         "mit den österreichischen Versicherungen, über ein von den Versicherungen definiertes Datenformat, " +
                         "ermöglicht. Bei der Software handelt es sich um eine Java Applikation (Spring Boot). Eine Zertifizierung " +
                         "soll in Kürze erfolgen.");
-        JobItemTranslation medbitsEnglish = new JobItemTranslation("en", "medbits", "Software Engineer",
+        JobItemTranslation medbitsEnglish = new JobItemTranslation(Locale.ENGLISH.getLanguage(), "medbits", "Software Engineer",
                 "In the context of a project, I developed a Software Solution that allows medical professionals " +
                         "to directly charge provided services with insurance companies using a predefined data exchange format. " +
                         "The project was realized using Java (SpringBoot) and is awaiting certification. ");
@@ -89,9 +90,9 @@ public class JobItemGenerator {
     }
 
     private static List<JobItemTranslation> getFitinnTranslations(JobItem jobItem) {
-        JobItemTranslation fitinnGerman = new JobItemTranslation("de", "FitInn", "Rezeptionist",
+        JobItemTranslation fitinnGerman = new JobItemTranslation(Locale.GERMAN.getLanguage(), "FitInn", "Rezeptionist",
                 "Verkaufsgespräche und Kundenbetreuung");
-        JobItemTranslation fitinnEnglish = new JobItemTranslation("en", "FitInn", "Receptionist",
+        JobItemTranslation fitinnEnglish = new JobItemTranslation(Locale.ENGLISH.getLanguage(), "FitInn", "Receptionist",
                 "Sale of memberships and customer service");
         fitinnGerman.setJobItem(jobItem);
         fitinnEnglish.setJobItem(jobItem);
