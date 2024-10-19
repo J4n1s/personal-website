@@ -12,12 +12,10 @@ import org.springframework.stereotype.Service;
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender mailSender;
-    private final SimpleMailMessage message;
 
     @Autowired
-    public EmailServiceImpl(JavaMailSender mailSender, SimpleMailMessage message) {
+    public EmailServiceImpl(JavaMailSender mailSender) {
         this.mailSender = mailSender;
-        this.message = message;
     }
 
     @Async

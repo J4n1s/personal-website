@@ -2,86 +2,39 @@ package janis.website.backend.service.impl;
 
 import janis.website.backend.controller.dto.EmailDto;
 import janis.website.backend.entity.ContactInformation;
-import janis.website.backend.exception.ValidationException;
 import janis.website.backend.repository.ContactInformationRepository;
 import janis.website.backend.service.ContactInformationService;
 import janis.website.backend.service.EmailService;
 import janis.website.backend.service.LanguageService;
+import janis.website.backend.service.MailBuilderService;
+import janis.website.backend.validator.ContactInformationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class ContactInformationServiceImpl implements ContactInformationService {
 
-    private static final String EMAIL_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-
     private final ContactInformationRepository contactInformationRepository;
     private final EmailService emailService;
     private final LanguageService languageService;
+    private final ContactInformationValidator validator;
+    private final MailBuilderService mailBuilderService;
 
     @Autowired
-    ContactInformationServiceImpl(ContactInformationRepository contactInformationRepository, EmailService emailService, LanguageService languageService) {
+    public ContactInformationServiceImpl(ContactInformationRepository contactInformationRepository, EmailService emailService, LanguageService languageService, ContactInformationValidator validator, MailBuilderService mailBuilderService) {
         this.contactInformationRepository = contactInformationRepository;
         this.emailService = emailService;
         this.languageService = languageService;
+        this.validator = validator;
+        this.mailBuilderService = mailBuilderService;
     }
 
     @Override
     public ContactInformation create(ContactInformation contactInformation) {
-        validateContactInformation(contactInformation);
-        emailService.sendEmail(getConfirmationEmail(contactInformation));
-        emailService.sendEmail(getNotificationEmail(contactInformation));
+        validator.validate(contactInformation);
+        emailService.sendEmail(mailBuilderService.buildContactInformationReceivedConfirmation(contactInformation,
+                languageService.getLanguage()));
+        emailService.sendEmail(mailBuilderService.buildContactInformationNotification(contactInformation));
         return contactInformationRepository.save(contactInformation);
-    }
-
-    private void validateContactInformation(ContactInformation contactInformation) {
-        if (contactInformation == null) {
-            throw new ValidationException("Contact information is null");
-        } else {
-            if (contactInformation.getName() == null || contactInformation.getName().isEmpty()) {
-                throw new ValidationException("Contact information name is empty");
-            } else if (contactInformation.getMail() == null || contactInformation.getMail().isEmpty()) {
-                throw new ValidationException("Contact information mail is empty");
-            } else if (contactInformation.getMessage() == null || contactInformation.getMessage().isEmpty()) {
-                throw new ValidationException("Contact information message is empty");
-            }
-            Pattern pattern = Pattern.compile(EMAIL_REGEX);
-            Matcher matcher = pattern.matcher(contactInformation.getMail());
-            if (!matcher.matches()) {
-                throw new ValidationException("Contact information mail format is incorrect");
-            }
-        }
-    }
-
-    private EmailDto getConfirmationEmail(ContactInformation contactInformation) {
-        if (languageService.getLanguage().equals("en")) {
-            return new EmailDto(contactInformation.getMail(), "Thanks for getting in touch!", """
-                Thank you for getting in touch!
-                I will contact you as soon as I can.
-                
-                Best regards,
-                Janis Schneeberger""");
-        } else {
-            return new EmailDto(contactInformation.getMail(), "Danke für die Kontaktaufnahme!", """
-                Danke für die Kontaktaufnahme!
-                Ich setze mich sobald ich kann mit Ihnen in Verbindung.
-                
-                Beste Grüße,
-                Janis Schneeberger""");
-        }
-    }
-
-    private EmailDto getNotificationEmail(ContactInformation contactInformation) {
-        String message = "You received a new contact request from:\n" +
-                contactInformation.getName() + "\n" +
-                "Mail: " + contactInformation.getMail() + "\n" +
-                "Phone: " + contactInformation.getPhone() + "\n" + "\n" +
-                "The following message was sent:\n\n" +
-                contactInformation.getMessage() + "\n";
-        return new EmailDto("janis.schneeberger@outlook.com", contactInformation.getName() + " wants to get in touch",
-                message);
     }
 }
