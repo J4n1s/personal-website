@@ -109,9 +109,9 @@ public class EducationItemRepositoryTest {
         EducationItem foundEducationItem3 = educationItems.get(2);
 
         assertAll(
-                () -> assertEquals(educationItem1, foundEducationItem3),
+                () -> assertEquals(educationItem1, foundEducationItem2),
                 () -> assertEquals(educationItem2, foundEducationItem1),
-                () -> assertEquals(educationItem3, foundEducationItem2)
+                () -> assertEquals(educationItem3, foundEducationItem3)
         );
     }
 }

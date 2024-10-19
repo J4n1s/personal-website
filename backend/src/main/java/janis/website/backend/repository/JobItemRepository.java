@@ -14,6 +14,6 @@ public interface JobItemRepository extends JpaRepository<JobItem, Long> {
     @Query("SELECT distinct ji from JobItem ji " +
             "JOIN FETCH ji.translations t " +
             "WHERE t.language = :language " +
-            "ORDER BY ji.startingYear DESC")
+            "ORDER BY ji.endingYear DESC NULLS FIRST, ji.startingYear DESC")
     List<JobItem> findAllByLanguageOrderByStartingYear(@Param("language") String language);
 }

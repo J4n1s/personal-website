@@ -15,6 +15,6 @@ public interface EducationItemRepository extends JpaRepository<EducationItem, Lo
     @Query("SELECT DISTINCT ei FROM EducationItem ei " +
             "JOIN FETCH ei.translations t " +
             "WHERE t.language = :language " +
-            "ORDER BY ei.startingYear DESC")
+            "ORDER BY ei.endingYear DESC NULLS FIRST, ei.startingYear DESC")
     List<EducationItem> findAllByLanguageOrderByStartingYear(@Param("language") String language);
 }
