@@ -12,26 +12,36 @@ import org.springframework.stereotype.Service;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
+/**
+ * Service implementation for managing {@link JobItem} entities.
+ * This class provides methods to retrieve job items filtered by language.
+ */
 @Service
 public class JobItemServiceImpl implements JobItemService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private final JobItemRepository jobItemRepository;
+  private final JobItemRepository jobItemRepository;
 
-    @Autowired
-    public JobItemServiceImpl(JobItemRepository jobItemRepository) {
-        this.jobItemRepository = jobItemRepository;
+  /**
+   * Constructor for JobItemServiceImpl.
+   *
+   * @param jobItemRepository the repository used for accessing job item data
+   */
+  @Autowired
+  public JobItemServiceImpl(JobItemRepository jobItemRepository) {
+    this.jobItemRepository = jobItemRepository;
+  }
+
+  @Override
+  public List<JobItem> getAllByLanguage(String language) {
+    LOGGER.info("Getting all job items by language {}", language);
+
+    List<JobItem> jobItems = jobItemRepository.findAllByLanguageOrderByStartingYear(language);
+    if (jobItems == null || jobItems.isEmpty()) {
+      jobItems = jobItemRepository
+          .findAllByLanguageOrderByStartingYear(LanguageService.DEFAULT_LANGUAGE);
     }
-
-    @Override
-    public List<JobItem> getAllByLanguage(String language) {
-        LOGGER.info("Getting all job items by language {}", language);
-
-        List<JobItem> jobItems = jobItemRepository.findAllByLanguageOrderByStartingYear(language);
-        if (jobItems == null || jobItems.isEmpty()) {
-            jobItems = jobItemRepository.findAllByLanguageOrderByStartingYear(LanguageService.DEFAULT_LANGUAGE);
-        }
-        return jobItems;
-    }
+    return jobItems;
+  }
 }

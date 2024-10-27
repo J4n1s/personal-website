@@ -12,36 +12,36 @@ import java.util.List;
 @Transactional
 public class ContactInformationMapperImpl implements ContactInformationMapper {
 
-    @Override
-    public ContactInformation dtoToEntity(ContactInformationDto contactInformationDto) {
-        ContactInformation contactInformation = new ContactInformation();
-        contactInformation.setName(contactInformationDto.getName());
-        contactInformation.setMail(contactInformationDto.getMail());
-        contactInformation.setPhone(contactInformationDto.getPhone());
-        contactInformation.setMessage(contactInformationDto.getMessage());
-        return contactInformation;
+  @Override
+  public ContactInformation dtoToEntity(ContactInformationDto contactInformationDto) {
+    ContactInformation contactInformation = new ContactInformation();
+    contactInformation.setName(contactInformationDto.getName());
+    contactInformation.setMail(contactInformationDto.getMail());
+    contactInformation.setPhone(contactInformationDto.getPhone());
+    contactInformation.setMessage(contactInformationDto.getMessage());
+    return contactInformation;
+  }
+
+  @Override
+  public ContactInformationDto entityToDto(ContactInformation contactInformation) {
+    ContactInformationDto contactInformationDto = new ContactInformationDto();
+    contactInformationDto.setName(contactInformation.getName());
+    contactInformationDto.setMail(contactInformation.getMail());
+    contactInformationDto.setPhone(contactInformation.getPhone());
+    contactInformationDto.setMessage(contactInformation.getMessage());
+    return contactInformationDto;
+  }
+
+  @Override
+  public List<ContactInformationDto> entityToDto(List<ContactInformation> contactInformationList) {
+    if (contactInformationList == null) {
+      return List.of();
     }
 
-    @Override
-    public ContactInformationDto entityToDto(ContactInformation contactInformation) {
-        ContactInformationDto contactInformationDto = new ContactInformationDto();
-        contactInformationDto.setName(contactInformation.getName());
-        contactInformationDto.setMail(contactInformation.getMail());
-        contactInformationDto.setPhone(contactInformation.getPhone());
-        contactInformationDto.setMessage(contactInformation.getMessage());
-        return contactInformationDto;
+    List<ContactInformationDto> contactInformationDtos = new ArrayList<>(contactInformationList.size());
+    for (ContactInformation contactInformation : contactInformationList) {
+      contactInformationDtos.add(entityToDto(contactInformation));
     }
-
-    @Override
-    public List<ContactInformationDto> entityToDto(List<ContactInformation> contactInformationList) {
-        if (contactInformationList == null) {
-            return List.of();
-        }
-
-        List<ContactInformationDto> contactInformationDtos = new ArrayList<>(contactInformationList.size());
-        for (ContactInformation contactInformation : contactInformationList) {
-            contactInformationDtos.add(entityToDto(contactInformation));
-        }
-        return contactInformationDtos;
-    }
+    return contactInformationDtos;
+  }
 }

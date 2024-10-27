@@ -14,30 +14,30 @@ import java.util.List;
 public class JobItemMapperImpl implements JobItemMapper {
 
 
-    @Override
-    public JobItemDto entityToDto(JobItem jobItem) {
-        JobItemDto dto = new JobItemDto();
-        dto.setStartingYear(jobItem.getStartingYear());
-        dto.setEndingYear(jobItem.getEndingYear());
-        dto.setLogoUrl(jobItem.getLogoUrl());
+  @Override
+  public JobItemDto entityToDto(JobItem jobItem) {
+    JobItemDto dto = new JobItemDto();
+    dto.setStartingYear(jobItem.getStartingYear());
+    dto.setEndingYear(jobItem.getEndingYear());
+    dto.setLogoUrl(jobItem.getLogoUrl());
 
-        JobItemTranslation translation = jobItem.getTranslations().get(0);
-        dto.setEmployerName(translation.getEmployerName());
-        dto.setJobTitle(translation.getJobTitle());
-        dto.setJobDescription(translation.getJobDescription());
-        return dto;
+    JobItemTranslation translation = jobItem.getTranslations().get(0);
+    dto.setEmployerName(translation.getEmployerName());
+    dto.setJobTitle(translation.getJobTitle());
+    dto.setJobDescription(translation.getJobDescription());
+    return dto;
+  }
+
+  @Override
+  public List<JobItemDto> entityToDto(List<JobItem> jobItems) {
+    if (jobItems == null) {
+      return List.of();
     }
 
-    @Override
-    public List<JobItemDto> entityToDto(List<JobItem> jobItems) {
-        if (jobItems == null) {
-            return List.of();
-        }
-
-        List<JobItemDto> list = new ArrayList<>();
-        for (JobItem jobItem : jobItems) {
-            list.add(entityToDto(jobItem));
-        }
-        return list;
+    List<JobItemDto> list = new ArrayList<>();
+    for (JobItem jobItem : jobItems) {
+      list.add(entityToDto(jobItem));
     }
+    return list;
+  }
 }

@@ -15,23 +15,23 @@ import java.lang.invoke.MethodHandles;
 @Configuration("EducationItemDataGenerator")
 public class ContactInformationGenerator {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private final ContactInformationRepository contactInformationRepository;
+  private final ContactInformationRepository contactInformationRepository;
 
-    @Autowired
-    public ContactInformationGenerator(ContactInformationRepository contactInformationRepository) {
-        this.contactInformationRepository = contactInformationRepository;
+  @Autowired
+  public ContactInformationGenerator(ContactInformationRepository contactInformationRepository) {
+    this.contactInformationRepository = contactInformationRepository;
+  }
+
+  @PostConstruct
+  private void generateData() {
+    if (contactInformationRepository.findAll().isEmpty()) {
+      LOGGER.info("Preloading: {}", contactInformationRepository.save(new ContactInformation("Janis",
+          "janis@mail.com", "12345", "Hello")));
+      LOGGER.info("Preloading: {}", contactInformationRepository.save(new ContactInformation("Snow-B",
+          "some@mail.com", "+43677", "Hi there")));
     }
-
-    @PostConstruct
-    private void generateData() {
-        if (contactInformationRepository.findAll().isEmpty()) {
-            LOGGER.info("Preloading: {}", contactInformationRepository.save(new ContactInformation("Janis",
-                    "janis@mail.com", "12345", "Hello")));
-            LOGGER.info("Preloading: {}", contactInformationRepository.save(new ContactInformation("Snow-B",
-                    "some@mail.com", "+43677", "Hi there")));
-        }
-    }
+  }
 
 }

@@ -14,31 +14,31 @@ import java.util.List;
 public class EducationItemMapperImpl implements EducationItemMapper {
 
 
-    @Override
-    public EducationItemDto entityToDto(EducationItem educationItem) {
-        EducationItemDto dto = new EducationItemDto();
-        dto.setStartingYear(educationItem.getStartingYear());
-        dto.setEndingYear(educationItem.getEndingYear());
-        dto.setLogoUrl(educationItem.getLogoUrl());
+  @Override
+  public EducationItemDto entityToDto(EducationItem educationItem) {
+    EducationItemDto dto = new EducationItemDto();
+    dto.setStartingYear(educationItem.getStartingYear());
+    dto.setEndingYear(educationItem.getEndingYear());
+    dto.setLogoUrl(educationItem.getLogoUrl());
 
-        EducationItemTranslation educationItemTranslation = educationItem.getTranslations().get(0);
-        dto.setSchoolName(educationItemTranslation.getSchoolName());
-        dto.setSchoolNameAbbreviation(educationItemTranslation.getSchoolNameAbbreviation());
-        dto.setStudyTitle(educationItemTranslation.getStudyTitle());
-        dto.setDescription(educationItemTranslation.getDescription());
-        return dto;
+    EducationItemTranslation educationItemTranslation = educationItem.getTranslations().get(0);
+    dto.setSchoolName(educationItemTranslation.getSchoolName());
+    dto.setSchoolNameAbbreviation(educationItemTranslation.getSchoolNameAbbreviation());
+    dto.setStudyTitle(educationItemTranslation.getStudyTitle());
+    dto.setDescription(educationItemTranslation.getDescription());
+    return dto;
+  }
+
+  @Override
+  public List<EducationItemDto> entityToDto(List<EducationItem> educationItemList) {
+    if (educationItemList == null) {
+      return List.of();
     }
 
-    @Override
-    public List<EducationItemDto> entityToDto(List<EducationItem> educationItemList) {
-        if (educationItemList == null) {
-            return List.of();
-        }
-
-        List<EducationItemDto> list = new ArrayList<>(educationItemList.size());
-        for (EducationItem educationItem : educationItemList) {
-            list.add(entityToDto(educationItem));
-        }
-        return list;
+    List<EducationItemDto> list = new ArrayList<>(educationItemList.size());
+    for (EducationItem educationItem : educationItemList) {
+      list.add(entityToDto(educationItem));
     }
+    return list;
+  }
 }

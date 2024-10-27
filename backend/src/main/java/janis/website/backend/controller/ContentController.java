@@ -17,113 +17,124 @@ import org.springframework.web.bind.annotation.RestController;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
+/**
+ * The ContentController class provides REST endpoints to fetch various types of content
+ * such as contact form, resume, interests, skills, footer, header, 404 page, and home page content.
+ * It uses ContentService to fetch content data and LanguageService to determine the current language.
+ */
 @RestController
 @RequestMapping(value = "api/v1/content")
 public class ContentController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-    private final ContentService contentService;
-    private final LanguageService languageService;
+  private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private final ContentService contentService;
+  private final LanguageService languageService;
 
-    @Autowired
-    public ContentController(ContentService contentService, LanguageService languageService) {
-        this.contentService = contentService;
-        this.languageService = languageService;
-    }
+  /**
+   * Constructs a ContentController with specified ContentService and LanguageService.
+   *
+   * @param contentService the ContentService to handle content related operations
+   * @param languageService the LanguageService to handle language preferences
+   */
+  @Autowired
+  public ContentController(ContentService contentService, LanguageService languageService) {
+    this.contentService = contentService;
+    this.languageService = languageService;
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/contact-form")
-    ResponseEntity<JsonNode> getContactFormContent() {
-        LOGGER.info("GET api/v1/content/contact-form");
-        try {
-            return ResponseEntity.ok(contentService.getContactFormContent(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("Error getting contact form content", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/contact-form")
+  ResponseEntity<JsonNode> getContactFormContent() {
+    LOGGER.info("GET api/v1/content/contact-form");
+    try {
+      return ResponseEntity.ok(contentService.getContactFormContent(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("Error getting contact form content", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/resume")
-    ResponseEntity<JsonNode> getResumeContent() {
-        LOGGER.info("GET api/v1/content/resume");
-        try {
-            return ResponseEntity.ok(contentService.getResumeContent(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("Error getting resume content", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/resume")
+  ResponseEntity<JsonNode> getResumeContent() {
+    LOGGER.info("GET api/v1/content/resume");
+    try {
+      return ResponseEntity.ok(contentService.getResumeContent(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("Error getting resume content", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/interests")
-    ResponseEntity<JsonNode> getInterestsContent() {
-        LOGGER.info("GET api/v1/content/interests");
-        try {
-            return ResponseEntity.ok(contentService.getInterestsContent(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("Error getting interests content", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/interests")
+  ResponseEntity<JsonNode> getInterestsContent() {
+    LOGGER.info("GET api/v1/content/interests");
+    try {
+      return ResponseEntity.ok(contentService.getInterestsContent(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("Error getting interests content", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/skills")
-    ResponseEntity<List<SkillDto>> getSkills() {
-        LOGGER.info("GET api/v1/resume/skills");
-        try {
-            return ResponseEntity.ok(contentService.getSkills(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("getSkills failed", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/skills")
+  ResponseEntity<List<SkillDto>> getSkills() {
+    LOGGER.info("GET api/v1/resume/skills");
+    try {
+      return ResponseEntity.ok(contentService.getSkills(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("getSkills failed", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/footer")
-    ResponseEntity<JsonNode> getFooterContent() {
-        LOGGER.info("GET api/v1/content/footer");
-        try {
-            return ResponseEntity.ok(contentService.getFooterContent(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("Error getting footer content", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/footer")
+  ResponseEntity<JsonNode> getFooterContent() {
+    LOGGER.info("GET api/v1/content/footer");
+    try {
+      return ResponseEntity.ok(contentService.getFooterContent(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("Error getting footer content", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/header")
-    ResponseEntity<JsonNode> getHeaderContent() {
-        LOGGER.info("GET api/v1/content/header");
-        try {
-            return ResponseEntity.ok(contentService.getHeaderContent(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("Error getting header content", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/header")
+  ResponseEntity<JsonNode> getHeaderContent() {
+    LOGGER.info("GET api/v1/content/header");
+    try {
+      return ResponseEntity.ok(contentService.getHeaderContent(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("Error getting header content", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/404")
-    ResponseEntity<JsonNode> get404Content() {
-        LOGGER.info("GET api/v1/content/404");
-        try {
-            return ResponseEntity.ok(contentService.get404Content(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("Error getting 404 content", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/404")
+  ResponseEntity<JsonNode> get404Content() {
+    LOGGER.info("GET api/v1/content/404");
+    try {
+      return ResponseEntity.ok(contentService.get404Content(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("Error getting 404 content", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 
-    @CrossOrigin
-    @GetMapping(value = "/home")
-    ResponseEntity<JsonNode> getHomeContent() {
-        LOGGER.info("GET api/v1/content/home");
-        try {
-            return ResponseEntity.ok(contentService.getHomeContent(languageService.getLanguage()));
-        } catch (NotFoundException e) {
-            LOGGER.error("Error getting home content", e);
-            return ResponseEntity.notFound().build();
-        }
+  @CrossOrigin
+  @GetMapping(value = "/home")
+  ResponseEntity<JsonNode> getHomeContent() {
+    LOGGER.info("GET api/v1/content/home");
+    try {
+      return ResponseEntity.ok(contentService.getHomeContent(languageService.getLanguage()));
+    } catch (NotFoundException e) {
+      LOGGER.error("Error getting home content", e);
+      return ResponseEntity.notFound().build();
     }
+  }
 }

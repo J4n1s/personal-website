@@ -16,26 +16,36 @@ import org.springframework.web.bind.annotation.RestController;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
+/**
+ * The JobItemController class handles HTTP requests for managing job items.
+ * It provides endpoints to retrieve job items, and maps entities to DTOs for response.
+ */
 @RestController
 @RequestMapping(value = "api/v1/jobs")
 public class JobItemController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-    private final JobItemService jobItemService;
-    private final JobItemMapper jobItemMapper;
+  private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private final JobItemService jobItemService;
+  private final JobItemMapper jobItemMapper;
 
-    @Autowired
-    public JobItemController(JobItemService jobItemService, JobItemMapper jobItemMapper) {
-        this.jobItemService = jobItemService;
-        this.jobItemMapper = jobItemMapper;
-    }
+  /**
+   * Constructs a JobItemController with the provided JobItemService and JobItemMapper.
+   *
+   * @param jobItemService the service layer component for handling job items
+   * @param jobItemMapper the mapper component for converting job item entities to DTOs
+   */
+  @Autowired
+  public JobItemController(JobItemService jobItemService, JobItemMapper jobItemMapper) {
+    this.jobItemService = jobItemService;
+    this.jobItemMapper = jobItemMapper;
+  }
 
-    @CrossOrigin
-    @GetMapping
-    ResponseEntity<List<JobItemDto>> all() {
-        LOGGER.info("GET api/v1/jobs");
-        return ResponseEntity.ok(
-                jobItemMapper.entityToDto(jobItemService.getAllByLanguage(LocaleContextHolder.getLocale().getLanguage()))
-        );
-    }
+  @CrossOrigin
+  @GetMapping
+  ResponseEntity<List<JobItemDto>> all() {
+    LOGGER.info("GET api/v1/jobs");
+    return ResponseEntity.ok(
+        jobItemMapper.entityToDto(jobItemService.getAllByLanguage(LocaleContextHolder.getLocale().getLanguage()))
+    );
+  }
 }
