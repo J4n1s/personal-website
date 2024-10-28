@@ -2,7 +2,6 @@ package janis.website.backend;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
@@ -18,6 +17,10 @@ import java.util.Properties;
 @Configuration
 public class AppConfig {
 
+  private static final String MAIL_USERNAME = System.getenv("MAIL_USERNAME");
+  private static final String MAIL_PASSWORD = System.getenv("MAIL_PASSWORD");
+  public static final String MAIL_FROM = System.getenv("MAIL_FROM");
+
   /**
    * Configures and returns a JavaMailSender bean that can be used to send emails.
    * The method initializes the mail sender with SMTP server settings, authentication,
@@ -31,8 +34,8 @@ public class AppConfig {
     mailSender.setHost("smtp.gmail.com");
     mailSender.setPort(587);
 
-    mailSender.setUsername(System.getenv("MAIL_USERNAME")); // Username from environment variable
-    mailSender.setPassword(System.getenv("MAIL_PASSWORD")); // Password from environment variable
+    mailSender.setUsername(MAIL_USERNAME); // Username from environment variable
+    mailSender.setPassword(MAIL_PASSWORD); // Password from environment variable
 
     Properties props = mailSender.getJavaMailProperties();
     props.put("mail.transport.protocol", "smtp");
@@ -41,19 +44,5 @@ public class AppConfig {
     props.put("mail.debug", "false");  // Disable for production, enable for debugging
 
     return mailSender;
-  }
-
-  /**
-   * Configures and returns a SimpleMailMessage template for sending emails.
-   * The method initializes the mail message with a default text and sender email address.
-   *
-   * @return a configured SimpleMailMessage instance.
-   */
-  @Bean
-  public SimpleMailMessage templateSimpleMessage() {
-    SimpleMailMessage message = new SimpleMailMessage();
-    message.setText("This is the test email template for your email:\n%s\n");
-    message.setFrom(System.getenv("MAIL_USERNAME"));
-    return message;
   }
 }

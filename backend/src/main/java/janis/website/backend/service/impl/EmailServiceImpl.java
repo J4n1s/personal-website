@@ -8,6 +8,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import static janis.website.backend.AppConfig.MAIL_FROM;
+
 /**
  * Implementation of the EmailService interface.
  * This service is responsible for sending emails asynchronously.
@@ -32,7 +34,7 @@ public class EmailServiceImpl implements EmailService {
   @Override
   public void sendEmail(EmailDto emailDto) {
     SimpleMailMessage message = new SimpleMailMessage();
-    message.setFrom("janis.schneeberger@outlook.com");
+    message.setFrom(MAIL_FROM);
     message.setTo(emailDto.getRecipient());
     message.setSubject(emailDto.getSubject());
     message.setText(emailDto.getContent());
