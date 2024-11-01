@@ -5,13 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import janis.website.backend.controller.dto.SkillDto;
 import janis.website.backend.exception.NotFoundException;
 import janis.website.backend.service.ContentService;
+import janis.website.backend.service.LanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class ContentServiceImpl implements ContentService {
 
   private static final String DATA_PATH = "src/main/resources/static/";
   private final ObjectMapper objectMapper;
+  private final ResourceLoader resourceLoader;
 
   /**
    * Constructs a new ContentServiceImpl with the specified ObjectMapper.
@@ -31,8 +33,9 @@ public class ContentServiceImpl implements ContentService {
    * @param objectMapper an ObjectMapper instance used for parsing JSON content
    */
   @Autowired
-  public ContentServiceImpl(ObjectMapper objectMapper) {
+  public ContentServiceImpl(ObjectMapper objectMapper, ResourceLoader resourceLoader) {
     this.objectMapper = objectMapper;
+    this.resourceLoader = resourceLoader;
   }
 
   @Override
@@ -79,10 +82,11 @@ public class ContentServiceImpl implements ContentService {
 
   @Override
   public List<SkillDto> getSkills(String language) {
-    String filename = DATA_PATH + "skills_" + language + ".json";
+    String filename = "skills_" + language + ".json";
+    Resource resource = resourceLoader.getResource("classpath:static/" + filename);
     try {
       List<SkillDto> skills = objectMapper.readValue(
-          Paths.get(filename).toFile(),
+          Files.readString(Paths.get(resource.getURI())),
           objectMapper.getTypeFactory().constructCollectionType(List.class, SkillDto.class)
       );
 
@@ -96,30 +100,24 @@ public class ContentServiceImpl implements ContentService {
   }
 
   private JsonNode getJsonContent(String fileBasename, String language) {
-    String filename = DATA_PATH + fileBasename + "_" + language + ".json";
+    String filename =  fileBasename + "_" + language + ".json";
+    Resource resource = resourceLoader.getResource("classpath:static/" + filename);
     try {
-      String jsonContent = Files.readString(Paths.get(filename));
+      String jsonContent = Files.readString(Paths.get(resource.getURI()));
       return objectMapper.readTree(jsonContent);
     } catch (IOException e) {
-      return getJsonContentOfAnyLanguage(fileBasename, e);
+      return getJsonContentOfDefaultLanguage(fileBasename, e);
     }
   }
 
-  private JsonNode getJsonContentOfAnyLanguage(String fileBasename, Exception e) {
-    Path dataDir = Paths.get(DATA_PATH);
-    File[] jsonFiles = dataDir.toFile().listFiles(
-        (dir, name) -> name.startsWith(fileBasename) && name.endsWith(".json")
-    );
-
-    if (jsonFiles != null && jsonFiles.length > 0) {
-      File jsonFile = jsonFiles[0];
-      try {
-        String content = Files.readString(jsonFile.toPath());
-        return objectMapper.readTree(content);
-      } catch (IOException exception) {
-        throw new NotFoundException(exception);
-      }
+  private JsonNode getJsonContentOfDefaultLanguage(String fileBasename, IOException e) {
+    String filename =  fileBasename + "_" + LanguageService.DEFAULT_LANGUAGE + ".json";
+    Resource resource = resourceLoader.getResource("classpath:static/" + filename);
+    try {
+      String jsonContent = Files.readString(Paths.get(resource.getURI()));
+      return objectMapper.readTree(jsonContent);
+    } catch (IOException eNew) {
+      throw new NotFoundException(e);
     }
-    throw new NotFoundException(e);
   }
 }
