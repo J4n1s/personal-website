@@ -35,7 +35,7 @@ public class EmailServiceImplTest {
 
         SimpleMailMessage message = argument.getValue();
         assertAll(
-                () -> assertEquals("janis.schneeberger@outlook.com", message.getFrom()),
+                () -> assertEquals(System.getenv("MAIL_FROM"), message.getFrom()),
                 () -> assertEquals(emailDto.getRecipient(), Objects.requireNonNull(message.getTo())[0]),
                 () -> assertEquals(emailDto.getSubject(), message.getSubject()),
                 () -> assertEquals(emailDto.getContent(), message.getText())
