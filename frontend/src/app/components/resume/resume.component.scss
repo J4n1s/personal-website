@@ -88,3 +88,14 @@ section {
   background-color: var(--secondary-cl); /* Soft Blue for progress */
   border-radius: 10px 0 0 10px;
 }
+
+@media (max-width: 768px) {
+  .profile-pic {
+    display: none;
+  }
+
+  .about-me {
+    max-width: 100%;
+    text-align: left;
+  }
+}
