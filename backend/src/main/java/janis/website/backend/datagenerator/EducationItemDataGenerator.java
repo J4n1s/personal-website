@@ -57,7 +57,7 @@ public class EducationItemDataGenerator {
         "Informatik relevanten Kurse habe ich das Diplomstudium Humanmedizin angefangen. Ich freue mich dieses Studium anzugehen " +
         "und hoffe mich bereits früh in der medizinschen Forschung einbringen zu können.");
     EducationItemTranslation medEnglish = new EducationItemTranslation(Locale.ENGLISH.getLanguage(), "Medical University of Vienna",
-        "Med Uni Vienna", "Medicine Degree", "After finishing most of the relevant " +
+        "Med Uni Vienna", "Medical Degree", "After finishing most of the relevant " +
         "courses for my Software Engineering studies I'm thrilled to study for my medical degree. I hope that I will be able " +
         "to contribute to medical research at an early stage.");
     medGerman.setEducationItem(educationItem);
