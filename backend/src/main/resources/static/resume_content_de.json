@@ -1,9 +1,9 @@
 {
-  "header": "Janis Schneeberger",
+  "header": "Janis Schneeberger, B.Sc.",
   "pictureAlt": "Profilbild",
   "aboutMe": {
     "title": "Über mich",
-    "text": "Ich studiere Software Engineering und habe mich während meines Studiums besonders auf Backend Entwicklung und  IT-Security fokussiert. Im Zuge meiner universitären Ausbildung habe ich viel über Prinzipien und Abläufe der Softwareentwicklung gelernt. Ich freue mich dieses Wissen in der Praxis anzuwenden und zu vertiefen."
+    "text": "Ich habe einen Bachelor of Science in Software & Information Engineering und habe mich während meines Studiums besonders auf Backend Entwicklung und  IT-Security fokussiert. Im Zuge meiner universitären Ausbildung habe ich viel über Prinzipien und Abläufe der Softwareentwicklung gelernt. Ich freue mich dieses Wissen in der Praxis anzuwenden und zu vertiefen."
   },
   "workExperience": {
     "title": "Berufserfahrung",

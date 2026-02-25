@@ -13,7 +13,7 @@ import {Globals} from "./globals";
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'Janis Schneeberger';
+  title = 'Janis Schneeberger, B.Sc.';
 
   constructor(@Inject(DOCUMENT) private document: Document, private globals: Globals) {
   }

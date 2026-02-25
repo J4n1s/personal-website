@@ -38,7 +38,7 @@ public class EducationItemDataGenerator {
       educationItemRepository.save(medUni);
 
       // TU Vienna
-      EducationItem tu = new EducationItem(2020, null, "assets/logo-tu.png");
+      EducationItem tu = new EducationItem(2020, 2025, "assets/logo-tu.png");
       List<EducationItemTranslation> tuTranslations = getTuTranslations(tu);
       tu.setTranslations(tuTranslations);
       educationItemRepository.save(tu);
@@ -72,11 +72,12 @@ public class EducationItemDataGenerator {
     EducationItemTranslation tuGerman = new EducationItemTranslation(Locale.GERMAN.getLanguage(), "Technische Universität Wien",
         "TU Wien", "BSc Software Engineering", "Direkt nach meiner Matura habe ich mein " +
         "Informatikstudium mit der Vertiefung Software Engineering begonnen. In meiner Zeit auf der TU habe ich viele spannende " +
-        "Aspekte der Informatik kennengelernt und benötige nun nur noch meine Abschlussarbeit um das Studium zu beenden.");
+        "Aspekte der Informatik kennengelernt und mich besonders für Backend Entwicklung und IT-Sicherheit interessiert.");
     EducationItemTranslation tuEnglish = new EducationItemTranslation(Locale.ENGLISH.getLanguage(), "Technical University of Vienna",
         "TU Vienna", "BSc Software Engineering", "Immediately after graduating from high school, " +
         "I started my degree in computer science with a specialization in software engineering. During my time at TU, I got to know " +
-        "many exciting aspects of computer science. To get my degree I only need to finish my final thesis.");
+        "many exciting aspects of computer science and I became particularly interested in "
+        + "backend development and IT-security.");
     tuGerman.setEducationItem(educationItem);
     tuEnglish.setEducationItem(educationItem);
     List<EducationItemTranslation> translations = new ArrayList<>();
