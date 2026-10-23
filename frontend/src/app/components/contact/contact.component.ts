@@ -2,17 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {Validators, ReactiveFormsModule, FormBuilder, FormGroup, FormControl} from "@angular/forms";
 import {ContactInformation} from "../../dtos/contact-information";
 import {ContactService} from "../../services/contact-service";
-import {AsyncPipe, NgIf} from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
     selector: 'app-contact',
     imports: [
-        ReactiveFormsModule,
-        NgIf,
-        AsyncPipe
-    ],
+    ReactiveFormsModule,
+    AsyncPipe
+],
     templateUrl: './contact.component.html',
     styleUrl: './contact.component.scss'
 })

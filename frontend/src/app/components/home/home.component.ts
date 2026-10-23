@@ -3,15 +3,14 @@ import {EducationHistoryComponent} from "../education-history/education-history.
 import {EmploymentHistoryComponent} from "../employment-history/employment-history.component";
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {NgIf} from "@angular/common";
+
 
 @Component({
     selector: 'app-home',
     imports: [
-        EducationHistoryComponent,
-        EmploymentHistoryComponent,
-        NgIf
-    ],
+    EducationHistoryComponent,
+    EmploymentHistoryComponent
+],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })

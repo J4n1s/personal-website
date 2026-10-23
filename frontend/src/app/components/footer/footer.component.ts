@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {AsyncPipe, NgIf, NgOptimizedImage} from "@angular/common";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
     selector: 'app-footer',
     imports: [
-        NgOptimizedImage,
-        AsyncPipe,
-        NgIf
-    ],
+    NgOptimizedImage,
+    AsyncPipe
+],
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.scss'
 })

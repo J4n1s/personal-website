@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
+import { NgClass, NgOptimizedImage } from "@angular/common";
 import {Globals} from "../../globals";
 
 @Component({
     selector: 'app-interest',
     imports: [
-        NgForOf,
-        NgClass,
-        NgOptimizedImage,
-    ],
+    NgClass,
+    NgOptimizedImage
+],
     templateUrl: './interest.component.html',
     styleUrl: './interest.component.scss'
 })

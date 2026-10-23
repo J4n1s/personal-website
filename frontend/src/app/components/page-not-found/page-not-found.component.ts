@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {AsyncPipe, NgIf} from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 
 @Component({
     selector: 'app-page-not-found',
     imports: [
-        AsyncPipe,
-        NgIf
-    ],
+    AsyncPipe
+],
     templateUrl: './page-not-found.component.html',
     styleUrl: './page-not-found.component.scss'
 })

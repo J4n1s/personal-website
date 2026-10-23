@@ -2,15 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {AsyncPipe, NgIf} from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 
 @Component({
     selector: 'app-header',
     imports: [
-        RouterLink,
-        AsyncPipe,
-        NgIf
-    ],
+    RouterLink,
+    AsyncPipe
+],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
 })

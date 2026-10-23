@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AsyncPipe, NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
+import { AsyncPipe, NgClass, NgOptimizedImage, NgStyle } from "@angular/common";
 import {JobItem} from "../../dtos/job-item";
 import {JobItemService} from "../../services/job-item.service";
 import {Globals} from "../../globals";
@@ -8,13 +8,11 @@ import {HttpErrorResponse} from "@angular/common/http";
 @Component({
     selector: 'app-employment-history',
     imports: [
-        NgClass,
-        NgForOf,
-        NgOptimizedImage,
-        NgStyle,
-        AsyncPipe,
-        NgIf
-    ],
+    NgClass,
+    NgOptimizedImage,
+    NgStyle,
+    AsyncPipe
+],
     templateUrl: './employment-history.component.html',
     styleUrls: ['./employment-history.component.scss', '../../styles/timeline.scss']
 })

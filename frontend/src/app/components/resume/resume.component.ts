@@ -3,19 +3,17 @@ import {EmploymentHistoryComponent} from "../employment-history/employment-histo
 import {EducationHistoryComponent} from "../education-history/education-history.component";
 import {Skill} from "../../dtos/skill";
 import {HttpErrorResponse} from "@angular/common/http";
-import {AsyncPipe, NgForOf, NgIf, NgStyle} from "@angular/common";
+import { AsyncPipe, NgStyle } from "@angular/common";
 import {ContentService} from "../../services/content.service";
 
 @Component({
     selector: 'app-resume',
     imports: [
-        EmploymentHistoryComponent,
-        EducationHistoryComponent,
-        NgForOf,
-        NgStyle,
-        AsyncPipe,
-        NgIf
-    ],
+    EmploymentHistoryComponent,
+    EducationHistoryComponent,
+    NgStyle,
+    AsyncPipe
+],
     templateUrl: './resume.component.html',
     styleUrl: './resume.component.scss'
 })

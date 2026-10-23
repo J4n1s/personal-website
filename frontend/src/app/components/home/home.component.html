@@ -1,14 +1,16 @@
-<section *ngIf="homeContent" class="hero-section">
-  <div class="hero-text">
-    <h1>{{ homeContent.title }}</h1>
-    <h2>{{ homeContent.name }}</h2>
-    <p>{{ homeContent.location }}</p>
-    <div class="button-group">
-      <a href="/resume" class="btn-primary">{{ homeContent.resume }}</a>
-      <a href="/contact" class="btn-secondary">{{ homeContent.contact }}</a>
+@if (homeContent) {
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1>{{ homeContent.title }}</h1>
+      <h2>{{ homeContent.name }}</h2>
+      <p>{{ homeContent.location }}</p>
+      <div class="button-group">
+        <a href="/resume" class="btn-primary">{{ homeContent.resume }}</a>
+        <a href="/contact" class="btn-secondary">{{ homeContent.contact }}</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-image">
-    <img class="profile-picture" src="assets/profile_photo.jpg" alt="{{ homeContent.imgAlt }}">
-  </div>
-</section>
+    <div class="hero-image">
+      <img class="profile-picture" src="assets/profile_photo.jpg" alt="{{ homeContent.imgAlt }}">
+    </div>
+  </section>
+}
