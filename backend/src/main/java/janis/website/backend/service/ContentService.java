@@ -1,6 +1,6 @@
 package janis.website.backend.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import janis.website.backend.controller.dto.SkillDto;
 
 import java.util.List;
