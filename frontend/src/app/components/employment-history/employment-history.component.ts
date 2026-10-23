@@ -1,23 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {AsyncPipe, NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import { AsyncPipe, NgClass, NgOptimizedImage, NgStyle } from "@angular/common";
 import {JobItem} from "../../dtos/job-item";
 import {JobItemService} from "../../services/job-item.service";
 import {Globals} from "../../globals";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-employment-history',
-  standalone: true,
-  imports: [
+    selector: 'app-employment-history',
+    imports: [
     NgClass,
-    NgForOf,
     NgOptimizedImage,
     NgStyle,
-    AsyncPipe,
-    NgIf
-  ],
-  templateUrl: './employment-history.component.html',
-  styleUrls: ['./employment-history.component.scss', '../../styles/timeline.scss'],
+    AsyncPipe
+],
+    templateUrl: './employment-history.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./employment-history.component.scss', '../../styles/timeline.scss']
 })
 export class EmploymentHistoryComponent implements OnInit {
 

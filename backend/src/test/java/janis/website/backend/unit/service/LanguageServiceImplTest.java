@@ -3,7 +3,7 @@ package janis.website.backend.unit.service;
 import janis.website.backend.service.LanguageService;
 import janis.website.backend.service.impl.LanguageServiceImpl;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.context.i18n.LocaleContextHolder;
 
 import java.util.Locale;

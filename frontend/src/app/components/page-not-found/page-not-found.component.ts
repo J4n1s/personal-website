@@ -1,17 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {AsyncPipe, NgIf} from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 
 @Component({
-  selector: 'app-page-not-found',
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    NgIf
-  ],
-  templateUrl: './page-not-found.component.html',
-  styleUrl: './page-not-found.component.scss'
+    selector: 'app-page-not-found',
+    imports: [
+    AsyncPipe
+],
+    templateUrl: './page-not-found.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './page-not-found.component.scss'
 })
 export class PageNotFoundComponent implements OnInit {
   errorContent!: any;

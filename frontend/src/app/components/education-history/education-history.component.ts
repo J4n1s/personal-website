@@ -1,23 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {EducationItemService} from '../../services/education-item.service'
 import {EducationItem} from "../../dtos/education-item";
 import {HttpErrorResponse} from "@angular/common/http";
-import {AsyncPipe, NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import { AsyncPipe, NgClass, NgOptimizedImage } from "@angular/common";
 import {Globals} from "../../globals";
 
 
 @Component({
-  selector: 'app-education-history',
-  standalone: true,
+    selector: 'app-education-history',
     imports: [
-        NgClass,
-        NgForOf,
-        NgOptimizedImage,
-        AsyncPipe,
-        NgIf
-    ],
-  templateUrl: './education-history.component.html',
-  styleUrls: ['./education-history.component.scss', '../../styles/timeline.scss']
+    NgClass,
+    NgOptimizedImage,
+    AsyncPipe
+],
+    templateUrl: './education-history.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./education-history.component.scss', '../../styles/timeline.scss']
 })
 export class EducationHistoryComponent implements OnInit {
 

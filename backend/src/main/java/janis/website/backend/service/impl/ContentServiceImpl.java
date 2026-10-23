@@ -1,7 +1,5 @@
 package janis.website.backend.service.impl;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import janis.website.backend.controller.dto.SkillDto;
 import janis.website.backend.exception.NotFoundException;
 import janis.website.backend.service.ContentService;
@@ -10,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -94,7 +95,7 @@ public class ContentServiceImpl implements ContentService {
           (skill1, skill2) -> skill1.getName().compareToIgnoreCase(skill2.getName())
       ).toList();
       return skills;
-    } catch (IOException e) {
+    } catch (IOException | JacksonException e) {
       throw new NotFoundException(e);
     }
   }
@@ -105,18 +106,18 @@ public class ContentServiceImpl implements ContentService {
     try {
       String jsonContent = Files.readString(Paths.get(resource.getURI()));
       return objectMapper.readTree(jsonContent);
-    } catch (IOException e) {
+    } catch (IOException | JacksonException e) {
       return getJsonContentOfDefaultLanguage(fileBasename, e);
     }
   }
 
-  private JsonNode getJsonContentOfDefaultLanguage(String fileBasename, IOException e) {
+  private JsonNode getJsonContentOfDefaultLanguage(String fileBasename, Exception e) {
     String filename =  fileBasename + "_" + LanguageService.DEFAULT_LANGUAGE + ".json";
     Resource resource = resourceLoader.getResource("classpath:static/" + filename);
     try {
       String jsonContent = Files.readString(Paths.get(resource.getURI()));
       return objectMapper.readTree(jsonContent);
-    } catch (IOException eNew) {
+    } catch (IOException | JacksonException eNew) {
       throw new NotFoundException(e);
     }
   }

@@ -1,19 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
+import { NgClass, NgOptimizedImage } from "@angular/common";
 import {Globals} from "../../globals";
 
 @Component({
-  selector: 'app-interest',
-  standalone: true,
-  imports: [
-    NgForOf,
+    selector: 'app-interest',
+    imports: [
     NgClass,
-    NgOptimizedImage,
-  ],
-  templateUrl: './interest.component.html',
-  styleUrl: './interest.component.scss'
+    NgOptimizedImage
+],
+    templateUrl: './interest.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './interest.component.scss'
 })
 export class InterestComponent implements OnInit {
 

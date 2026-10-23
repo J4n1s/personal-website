@@ -1,5 +1,7 @@
-<section *ngIf="errorContent" class="error-container">
-  <h1 class="error-header">{{ errorContent.header }}</h1>
-  <p class="error-text">{{ errorContent.text.part1 }}</p>
-  <p class="contact-link">{{ errorContent.text.part2 }}<a href="/contact">{{ errorContent.text.part3 }}</a>{{ errorContent.text.part4 }}</p>
-</section>
+@if (errorContent) {
+  <section class="error-container">
+    <h1 class="error-header">{{ errorContent.header }}</h1>
+    <p class="error-text">{{ errorContent.text.part1 }}</p>
+    <p class="contact-link">{{ errorContent.text.part2 }}<a href="/contact">{{ errorContent.text.part3 }}</a>{{ errorContent.text.part4 }}</p>
+  </section>
+}

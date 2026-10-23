@@ -1,18 +1,22 @@
-<section *ngFor="let interest of interestsContent; let i = index; let isLast=last" class="interest-section" [style]="!isLast ? 'border-bottom: 1px solid var(--primary-cl);' : ''">
-  <div [ngClass]="i%2 === 0 ? 'content interest-img-left' : 'content interest-img-right'">
-    <div class="image-container">
-      <input *ngFor="let j of [1, 2, 3]" type="radio" name="slider-{{i + 1}}" id="item-{{i + 1}}-{{j}}" [checked]="j === 1">
-
-      <div class="cards">
-        <label *ngFor="let j of [1, 2, 3]" class="card" id="img-{{i + 1}}-{{j}}" for="item-{{i+1}}-{{j}}">
-          <img ngSrc="{{baseUri + '/' + interest.images[j-1]}}" alt="Placeholder" height="900" width="600" [priority]="i === 0"> <!-- Priority for first three images -->
-        </label>
+@for (interest of interestsContent; track interest; let i = $index; let isLast = $last) {
+  <section class="interest-section" [style]="!isLast ? 'border-bottom: 1px solid var(--primary-cl);' : ''">
+    <div [ngClass]="i%2 === 0 ? 'content interest-img-left' : 'content interest-img-right'">
+      <div class="image-container">
+        @for (j of [1, 2, 3]; track j) {
+          <input type="radio" name="slider-{{i + 1}}" id="item-{{i + 1}}-{{j}}" [checked]="j === 1">
+        }
+        <div class="cards">
+          @for (j of [1, 2, 3]; track j) {
+            <label class="card" id="img-{{i + 1}}-{{j}}" for="item-{{i+1}}-{{j}}">
+              <img ngSrc="{{baseUri + '/' + interest.images[j-1]}}" alt="Placeholder" height="900" width="600" [priority]="i === 0"> <!-- Priority for first three images -->
+            </label>
+          }
+        </div>
       </div>
-
+      <div class="interest-text">
+        <h2>{{interest.title}}</h2>
+        <p>{{interest.text}}</p>
+      </div>
     </div>
-    <div class="interest-text">
-      <h2>{{interest.title}}</h2>
-      <p>{{interest.text}}</p>
-    </div>
-  </div>
-</section>
+  </section>
+}

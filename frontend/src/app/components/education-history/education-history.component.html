@@ -1,14 +1,18 @@
-<div *ngIf="contentLoaded | async" class="timeline">
-  <div *ngFor="let educationItem of educationItems; let i = index" [ngClass]="i % 2 === 0 ? 'container left' : 'container right'">
-    <div class="content">
-      <div class="container-header">
-        <img src="{{educationItem.logoUrl}}" alt="Logo">
-        <div class="container-text">
-          <h2>{{educationItem.schoolName}}</h2>
-          <p class="time-range">{{ educationItem.startingYear }}-{{ educationItem.endingYear ? educationItem.endingYear : 'NOW' }} | {{educationItem.studyTitle}}</p>
+@if (contentLoaded | async) {
+  <div class="timeline">
+    @for (educationItem of educationItems; track educationItem; let i = $index) {
+      <div [ngClass]="i % 2 === 0 ? 'container left' : 'container right'">
+        <div class="content">
+          <div class="container-header">
+            <img src="{{educationItem.logoUrl}}" alt="Logo">
+            <div class="container-text">
+              <h2>{{educationItem.schoolName}}</h2>
+              <p class="time-range">{{ educationItem.startingYear }}-{{ educationItem.endingYear ? educationItem.endingYear : 'NOW' }} | {{educationItem.studyTitle}}</p>
+            </div>
+          </div>
+          <p class="timeline-description">{{educationItem.description}}</p>
         </div>
       </div>
-      <p class="timeline-description">{{educationItem.description}}</p>
-    </div>
+    }
   </div>
-</div>
+}

@@ -1,6 +1,6 @@
 package janis.website.backend.controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import janis.website.backend.controller.dto.SkillDto;
 import janis.website.backend.exception.NotFoundException;
 import janis.website.backend.service.LanguageService;
