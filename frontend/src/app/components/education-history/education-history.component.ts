@@ -7,8 +7,7 @@ import {Globals} from "../../globals";
 
 
 @Component({
-  selector: 'app-education-history',
-  standalone: true,
+    selector: 'app-education-history',
     imports: [
         NgClass,
         NgForOf,
@@ -16,8 +15,8 @@ import {Globals} from "../../globals";
         AsyncPipe,
         NgIf
     ],
-  templateUrl: './education-history.component.html',
-  styleUrls: ['./education-history.component.scss', '../../styles/timeline.scss']
+    templateUrl: './education-history.component.html',
+    styleUrls: ['./education-history.component.scss', '../../styles/timeline.scss']
 })
 export class EducationHistoryComponent implements OnInit {
 

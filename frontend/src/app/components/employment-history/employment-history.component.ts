@@ -6,18 +6,17 @@ import {Globals} from "../../globals";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-employment-history',
-  standalone: true,
-  imports: [
-    NgClass,
-    NgForOf,
-    NgOptimizedImage,
-    NgStyle,
-    AsyncPipe,
-    NgIf
-  ],
-  templateUrl: './employment-history.component.html',
-  styleUrls: ['./employment-history.component.scss', '../../styles/timeline.scss'],
+    selector: 'app-employment-history',
+    imports: [
+        NgClass,
+        NgForOf,
+        NgOptimizedImage,
+        NgStyle,
+        AsyncPipe,
+        NgIf
+    ],
+    templateUrl: './employment-history.component.html',
+    styleUrls: ['./employment-history.component.scss', '../../styles/timeline.scss']
 })
 export class EmploymentHistoryComponent implements OnInit {
 

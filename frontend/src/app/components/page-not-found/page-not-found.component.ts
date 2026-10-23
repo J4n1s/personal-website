@@ -4,14 +4,13 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {AsyncPipe, NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-page-not-found',
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    NgIf
-  ],
-  templateUrl: './page-not-found.component.html',
-  styleUrl: './page-not-found.component.scss'
+    selector: 'app-page-not-found',
+    imports: [
+        AsyncPipe,
+        NgIf
+    ],
+    templateUrl: './page-not-found.component.html',
+    styleUrl: './page-not-found.component.scss'
 })
 export class PageNotFoundComponent implements OnInit {
   errorContent!: any;

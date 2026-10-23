@@ -7,15 +7,14 @@ import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    NgIf,
-    AsyncPipe
-  ],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+    selector: 'app-contact',
+    imports: [
+        ReactiveFormsModule,
+        NgIf,
+        AsyncPipe
+    ],
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
 

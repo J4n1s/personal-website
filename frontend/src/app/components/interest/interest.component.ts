@@ -5,15 +5,14 @@ import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
 import {Globals} from "../../globals";
 
 @Component({
-  selector: 'app-interest',
-  standalone: true,
-  imports: [
-    NgForOf,
-    NgClass,
-    NgOptimizedImage,
-  ],
-  templateUrl: './interest.component.html',
-  styleUrl: './interest.component.scss'
+    selector: 'app-interest',
+    imports: [
+        NgForOf,
+        NgClass,
+        NgOptimizedImage,
+    ],
+    templateUrl: './interest.component.html',
+    styleUrl: './interest.component.scss'
 })
 export class InterestComponent implements OnInit {
 

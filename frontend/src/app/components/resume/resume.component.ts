@@ -7,18 +7,17 @@ import {AsyncPipe, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ContentService} from "../../services/content.service";
 
 @Component({
-  selector: 'app-resume',
-  standalone: true,
-  imports: [
-    EmploymentHistoryComponent,
-    EducationHistoryComponent,
-    NgForOf,
-    NgStyle,
-    AsyncPipe,
-    NgIf
-  ],
-  templateUrl: './resume.component.html',
-  styleUrl: './resume.component.scss'
+    selector: 'app-resume',
+    imports: [
+        EmploymentHistoryComponent,
+        EducationHistoryComponent,
+        NgForOf,
+        NgStyle,
+        AsyncPipe,
+        NgIf
+    ],
+    templateUrl: './resume.component.html',
+    styleUrl: './resume.component.scss'
 })
 export class ResumeComponent implements OnInit {
 

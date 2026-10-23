@@ -4,15 +4,14 @@ import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  imports: [
-    NgOptimizedImage,
-    AsyncPipe,
-    NgIf
-  ],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+    selector: 'app-footer',
+    imports: [
+        NgOptimizedImage,
+        AsyncPipe,
+        NgIf
+    ],
+    templateUrl: './footer.component.html',
+    styleUrl: './footer.component.scss'
 })
 export class FooterComponent implements OnInit {
 

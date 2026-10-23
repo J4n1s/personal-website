@@ -6,15 +6,14 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    EducationHistoryComponent,
-    EmploymentHistoryComponent,
-    NgIf
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'app-home',
+    imports: [
+        EducationHistoryComponent,
+        EmploymentHistoryComponent,
+        NgIf
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
 
