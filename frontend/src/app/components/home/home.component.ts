@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {EducationHistoryComponent} from "../education-history/education-history.component";
 import {EmploymentHistoryComponent} from "../employment-history/employment-history.component";
 import {ContentService} from "../../services/content.service";
@@ -12,6 +12,7 @@ import {HttpErrorResponse} from "@angular/common/http";
     EmploymentHistoryComponent
 ],
     templateUrl: './home.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {

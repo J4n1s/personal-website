@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {EmploymentHistoryComponent} from "../employment-history/employment-history.component";
 import {EducationHistoryComponent} from "../education-history/education-history.component";
 import {Skill} from "../../dtos/skill";
@@ -15,6 +15,7 @@ import {ContentService} from "../../services/content.service";
     AsyncPipe
 ],
     templateUrl: './resume.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './resume.component.scss'
 })
 export class ResumeComponent implements OnInit {

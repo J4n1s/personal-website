@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import { AsyncPipe, NgClass, NgOptimizedImage, NgStyle } from "@angular/common";
 import {JobItem} from "../../dtos/job-item";
 import {JobItemService} from "../../services/job-item.service";
@@ -14,6 +14,7 @@ import {HttpErrorResponse} from "@angular/common/http";
     AsyncPipe
 ],
     templateUrl: './employment-history.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./employment-history.component.scss', '../../styles/timeline.scss']
 })
 export class EmploymentHistoryComponent implements OnInit {

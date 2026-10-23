@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import { NgClass, NgOptimizedImage } from "@angular/common";
@@ -11,6 +11,7 @@ import {Globals} from "../../globals";
     NgOptimizedImage
 ],
     templateUrl: './interest.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './interest.component.scss'
 })
 export class InterestComponent implements OnInit {

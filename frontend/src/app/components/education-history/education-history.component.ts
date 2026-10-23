@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {EducationItemService} from '../../services/education-item.service'
 import {EducationItem} from "../../dtos/education-item";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -14,6 +14,7 @@ import {Globals} from "../../globals";
     AsyncPipe
 ],
     templateUrl: './education-history.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./education-history.component.scss', '../../styles/timeline.scss']
 })
 export class EducationHistoryComponent implements OnInit {

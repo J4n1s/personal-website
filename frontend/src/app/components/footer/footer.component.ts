@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -10,6 +10,7 @@ import {HttpErrorResponse} from "@angular/common/http";
     AsyncPipe
 ],
     templateUrl: './footer.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './footer.component.scss'
 })
 export class FooterComponent implements OnInit {

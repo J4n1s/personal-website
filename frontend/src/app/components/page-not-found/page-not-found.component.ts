@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import { AsyncPipe } from "@angular/common";
@@ -9,6 +9,7 @@ import { AsyncPipe } from "@angular/common";
     AsyncPipe
 ],
     templateUrl: './page-not-found.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './page-not-found.component.scss'
 })
 export class PageNotFoundComponent implements OnInit {
