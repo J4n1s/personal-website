@@ -37,6 +37,12 @@ public class JobItemGenerator {
       apg.setTranslations(apgTranslations);
       jobItemRepository.save(apg);
 
+      // Pentara
+      JobItem pentara = new JobItem(2026, 2026, "assets/pentara-logo.png");
+      List<JobItemTranslation> pentaraTranslations = getPentaraTranslations(pentara);
+      pentara.setTranslations(pentaraTranslations);
+      jobItemRepository.save(pentara);
+
       // MedBits
       JobItem medbits = new JobItem(2023, 2023, "assets/logo-medbits.png");
       List<JobItemTranslation> medbitsTranslations = getMedbitsTranslations(medbits);
@@ -68,6 +74,26 @@ public class JobItemGenerator {
     List<JobItemTranslation> translations = new ArrayList<>();
     translations.add(apgEnglish);
     translations.add(apgGerman);
+    return translations;
+  }
+
+  private static List<JobItemTranslation> getPentaraTranslations(JobItem jobItem) {
+    JobItemTranslation pentaraGerman = new JobItemTranslation(Locale.GERMAN.getLanguage(), "Pentara", "Praktikant im Statistical Consulting",
+        "Während meines dreimonatigen Praktikums lernte ich die klinische Forschung aus der Perspektive " +
+            "der statistischen Datenanalyse kennen. Zu Beginn vertiefte ich meine R-Kenntnisse anhand kleiner, " +
+            "klinisch relevanter statistischer Aufgaben. Im weiteren Verlauf setzte ich mich intensiv mit den " +
+            "theoretischen und praktischen Aspekten der longitudinalen Datenanalyse und der Planung klinischer " +
+            "Studien auseinander.");
+    JobItemTranslation pentaraEnglish = new JobItemTranslation(Locale.ENGLISH.getLanguage(), "Pentara", "Statistical Consulting Intern",
+        "During my three-month internship, I explored clinical research through the lens of a statistical " +
+            "consultant. I began by strengthening my R programming skills on small, clinically relevant statistical " +
+            "tasks. I then took a deep dive into the theoretical and practical aspects of longitudinal data analysis " +
+            "and the planning of clinical trials.");
+    pentaraGerman.setJobItem(jobItem);
+    pentaraEnglish.setJobItem(jobItem);
+    List<JobItemTranslation> translations = new ArrayList<>();
+    translations.add(pentaraEnglish);
+    translations.add(pentaraGerman);
     return translations;
   }
 
