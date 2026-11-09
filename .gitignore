@@ -158,3 +158,17 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+.idea/
+
+# macOS
+.DS_Store
+
+# Angular build output copied into the backend's static folder
+# (the JSON content and images in there are tracked on purpose)
+backend/src/main/resources/static/assets/
+backend/src/main/resources/static/favicon.ico
+backend/src/main/resources/static/frontend/
+backend/src/main/resources/static/index.html
+backend/src/main/resources/static/main-*.js
+backend/src/main/resources/static/polyfills-*.js
+backend/src/main/resources/static/styles-*.css
